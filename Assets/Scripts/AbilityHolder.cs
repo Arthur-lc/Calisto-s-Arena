@@ -34,6 +34,7 @@ public class AbilityHolder : MonoBehaviour
                 }
                 else {
                     state = AbilityState.cooldown;
+                    ability.onCooldown();    
                 }
 
             break;
@@ -43,13 +44,10 @@ public class AbilityHolder : MonoBehaviour
                 }
                 else {
                     state = AbilityState.ready;
+                    ability.onReady();
                 }
 
             break;
-        }
-
-        if(Input.GetKeyDown(key)) {
-            //Activate
         }
     }
 }

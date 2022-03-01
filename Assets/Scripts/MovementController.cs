@@ -9,6 +9,7 @@ public class MovementController : MonoBehaviour
     [HideInInspector] public float acceleration;
     [HideInInspector] public Vector2 movementInput;
     public Transform mouseDir;
+    public GameObject pointingArrow;
 
     void Start()
     {
