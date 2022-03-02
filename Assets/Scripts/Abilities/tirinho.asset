@@ -9,12 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b576af80c2da404b966abc8bd0fd026, type: 3}
-  m_Name: Axe
+  m_Script: {fileID: 11500000, guid: 6acace79668535243b16d2b27dacfbdc, type: 3}
+  m_Name: tirinho
   m_EditorClassIdentifier: 
-  name: Axe
-  cooldownTime: 1.2
-  activeTime: 0.3
+  name: Tirinho
+  cooldownTime: 1
+  activeTime: 0
   arrow: {fileID: 0}
-  damage: 3
-  attackObjetct: {fileID: 3928059022713990374, guid: 6fe5c05daa82240479c898f7ace04712, type: 3}
+  damage: 1
+  projectile: {fileID: 2929941032798461660, guid: 96b789b5a075b64499603d543c9122e6, type: 3}

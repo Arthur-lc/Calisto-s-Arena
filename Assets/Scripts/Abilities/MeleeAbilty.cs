@@ -2,25 +2,29 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Abilities/Melee")]
-public class Melee : Ability
+[CreateAssetMenu(menuName = "Abilities/MeleeAbilty")]
+public class MeleeAbilty : Ability
 {
+    /*
+        Essencialmente uma habilidade melle intancia um objeto como filho
+        esse objeto é enccaregado de, por exemplo, causar dano
+    */
+
     public float damage;
     public GameObject attackObjetct;
 
     private GameObject clone;
-    private GameObject arrow;
 
     public override void Activate(GameObject parent)
     {
         base.Activate(parent);
-
-        arrow = parent.GetComponent<MovementController>().pointingArrow;
         
         clone = Instantiate(attackObjetct, arrow.transform.position, arrow.transform.rotation, parent.transform);
-        arrow.GetComponent<SpriteRenderer>().enabled = false; //hide arrow
-        if(clone.TryGetComponent<DoesDamage>(out DoesDamage doesDamage)) {
-            doesDamage.damage = damage;
+         //hide arrow
+
+        //make shure that the hability does damage
+        if(clone.TryGetComponent<DealsDamage>(out DealsDamage dealsDamage)) {
+            dealsDamage.damage = damage;
         }
     }
 

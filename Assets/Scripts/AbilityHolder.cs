@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class AbilityHolder : MonoBehaviour
 {
-    public Ability ability;
+    [SerializeField] public Ability ability;
+    [SerializeField] public KeyCode key; //input to activate the ability
+
     float cooldownTime;
     float activeTime;
 
@@ -14,7 +16,11 @@ public class AbilityHolder : MonoBehaviour
         cooldown
     }
     AbilityState state = AbilityState.ready;
-    public KeyCode key; //input to activate the ability
+
+    public AbilityHolder(Ability newAbility, KeyCode newKey) {
+        ability = newAbility;
+        key = newKey;
+    }
     
     void Update()
     {
@@ -25,6 +31,7 @@ public class AbilityHolder : MonoBehaviour
                     ability.Activate(gameObject);
                     state = AbilityState.active;
                     activeTime = ability.activeTime;
+                    Debug.Log("a");
                 }
 
             break;

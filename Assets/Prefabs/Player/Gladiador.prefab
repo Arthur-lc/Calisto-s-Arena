@@ -126,7 +126,8 @@ GameObject:
   - component: {fileID: 6881258784522848734}
   - component: {fileID: 6881258784522848733}
   - component: {fileID: 6881258784522848732}
-  - component: {fileID: 6881258784522848729}
+  - component: {fileID: 3876847109500022342}
+  - component: {fileID: 65337952425468655}
   m_Layer: 3
   m_Name: Gladiador
   m_TagString: Untagged
@@ -255,7 +256,21 @@ MonoBehaviour:
   movementInput: {x: 0, y: 0}
   mouseDir: {fileID: 6881258784163935050}
   pointingArrow: {fileID: 5371509195809711743}
---- !u!114 &6881258784522848729
+--- !u!114 &3876847109500022342
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6881258784522848739}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29c4e7d9befd1a441b7d6dc9da80b21b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ability: {fileID: 11400000, guid: 546827beb2c1b3641a8601f0f191e26f, type: 2}
+  key: 323
+--- !u!114 &65337952425468655
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -328,7 +343,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 1
+  orthographic size: 1.5
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
