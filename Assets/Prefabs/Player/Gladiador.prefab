@@ -126,11 +126,10 @@ GameObject:
   - component: {fileID: 6881258784522848734}
   - component: {fileID: 6881258784522848733}
   - component: {fileID: 6881258784522848732}
-  - component: {fileID: 3876847109500022342}
-  - component: {fileID: 65337952425468655}
+  - component: {fileID: 3227172767081806908}
   m_Layer: 3
   m_Name: Gladiador
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -256,7 +255,7 @@ MonoBehaviour:
   movementInput: {x: 0, y: 0}
   mouseDir: {fileID: 6881258784163935050}
   pointingArrow: {fileID: 5371509195809711743}
---- !u!114 &3876847109500022342
+--- !u!114 &3227172767081806908
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -265,25 +264,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 6881258784522848739}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 29c4e7d9befd1a441b7d6dc9da80b21b, type: 3}
+  m_Script: {fileID: 11500000, guid: 989a7adc4a0d4c94497148fe73cf47e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ability: {fileID: 11400000, guid: 546827beb2c1b3641a8601f0f191e26f, type: 2}
-  key: 323
---- !u!114 &65337952425468655
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6881258784522848739}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 29c4e7d9befd1a441b7d6dc9da80b21b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ability: {fileID: 11400000, guid: 0fdeb9e9214c05541b3ed1eb2dc5a4b0, type: 2}
-  key: 32
+  aaa: {fileID: 0}
+  kkkk: 0
 --- !u!1 &6881258784602478208
 GameObject:
   m_ObjectHideFlags: 0

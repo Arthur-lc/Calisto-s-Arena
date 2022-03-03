@@ -31,7 +31,6 @@ public class AbilityHolder : MonoBehaviour
                     ability.Activate(gameObject);
                     state = AbilityState.active;
                     activeTime = ability.activeTime;
-                    Debug.Log("a");
                 }
 
             break;

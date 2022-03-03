@@ -9,12 +9,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b576af80c2da404b966abc8bd0fd026, type: 3}
-  m_Name: Sword
+  m_Script: {fileID: 11500000, guid: 6acace79668535243b16d2b27dacfbdc, type: 3}
+  m_Name: tirinho
   m_EditorClassIdentifier: 
-  name: Sword
+  name: Tirinho
+  Icon: {fileID: 21300000, guid: c218316d9c1a8af4aa68139413efaf51, type: 3}
   cooldownTime: 1
-  activeTime: 0.3
+  activeTime: 0
   arrow: {fileID: 0}
+  hideArrow: 0
   damage: 1
-  attackObjetct: {fileID: 890636466795196936, guid: 245c1e82ddaa86546b22572f4e9d928b, type: 3}
+  projectile: {fileID: 2929941032798461660, guid: 96b789b5a075b64499603d543c9122e6, type: 3}

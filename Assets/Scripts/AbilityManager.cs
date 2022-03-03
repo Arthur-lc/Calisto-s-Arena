@@ -4,22 +4,18 @@ using UnityEngine;
 
 public class AbilityManager : MonoBehaviour
 {
-    List<AbilityHolder> abilities = new List<AbilityHolder>();
-
-    // FOR TESTES ONLY
-    // FOR TESTES ONLY
-
-    public Ability ability1;
-    public KeyCode keyCode;
-
-    // FOR TESTES ONLY
-    // FOR TESTES ONLY
-
-    private void Update() {
-        if (Input.GetKeyDown(KeyCode.E))
-            AddNewAbility(ability1, keyCode);
+    AbilityHolder newAbiltyHolder;
+    ActionBar actionBar;
+    
+    private void Start() {
+        actionBar = FindObjectOfType<ActionBar>();
     }
+
     public void AddNewAbility(Ability ability, KeyCode key) {
-        abilities.Add( new AbilityHolder(ability, key));
+        newAbiltyHolder = gameObject.AddComponent<AbilityHolder>();
+        newAbiltyHolder.ability = ability;
+        newAbiltyHolder.key = key;
+
+        actionBar.addNewAbilty(ability);
     }
 }
