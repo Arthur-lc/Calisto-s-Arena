@@ -4,22 +4,18 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-
-    private GameObject player;
-    private Rigidbody2D rb;
-    [SerializeField] private float speed = .5f;
-    [SerializeField] private LayerMask playerMask;
+    [System.NonSerialized] public GameObject player;
+    [System.NonSerialized] public Rigidbody2D rb;
+    public float speed = .5f;
+    public LayerMask playerMask;
 
     private void Start() {
         player = GameObject.FindGameObjectWithTag("Player");
         rb = GetComponent<Rigidbody2D>();
     }
 
-    private void Update() {
-        // folow player
-        Vector2 moveDir = player.transform.position - transform.position;
-        moveDir = moveDir.normalized;
-        rb.velocity = moveDir * speed;
+    public virtual void Update() {
+        Debug.Log("AA");
     }
 
     public void Spawn(float radius) {
