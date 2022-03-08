@@ -4,12 +4,19 @@ using UnityEngine;
 
 public class EnemyFollower : Enemy
 {
+    public bool folowing;
     public override void Update()
     {
         base.Update();
 
-        Vector2 moveDir = player.transform.position - transform.position;
-        moveDir = moveDir.normalized;
-        rb.velocity = moveDir * speed;
+        /*if (folowing) 
+            base.Follow(base.player.transform);
+        //else
+            //base.GetAway(base.player.transform);*/
     }
+
+    private void FixedUpdate() {
+        base.Follow(base.player.transform);
+    }
+
 }

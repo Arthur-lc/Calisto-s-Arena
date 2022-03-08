@@ -20,7 +20,6 @@ public class MeleeAbilty : Ability
         base.Activate(parent);
         
         clone = Instantiate(attackObjetct, arrow.transform.position, arrow.transform.rotation, parent.transform);
-         //hide arrow
 
         //make shure that the hability does damage
         if(clone.TryGetComponent<DealsDamage>(out DealsDamage dealsDamage)) {

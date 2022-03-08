@@ -14,9 +14,7 @@ public class Enemy : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
 
-    public virtual void Update() {
-        Debug.Log("AA");
-    }
+    public virtual void Update() {}
 
     public void Spawn(float radius) {
         transform.position = RandomPolar(radius);
@@ -36,4 +34,17 @@ public class Enemy : MonoBehaviour
         float r = Random.Range(0f, radius);
         return new Vector2(r * Mathf.Cos(theta), r * Mathf.Sin(theta));
     }
+
+    public void Follow(Transform target) {
+        Vector3 moveDir = target.position - transform.position;
+        Vector3 distortion = new Vector3(Random.Range(-.0075f, .0075f), Random.Range(-.0075f, .0075f), 0);
+        moveDir = moveDir.normalized;
+        rb.MovePosition(transform.position + distortion + moveDir * Time.fixedDeltaTime * speed);
+    }
+
+    /*public void GetAway(Transform target) {
+        Vector2 moveDir = transform.position - target.position;
+        moveDir = moveDir.normalized;
+        rb.velocity = moveDir * speed;
+    }*/
 }
