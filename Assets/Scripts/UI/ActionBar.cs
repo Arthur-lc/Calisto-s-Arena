@@ -9,7 +9,7 @@ public class ActionBar : MonoBehaviour
     public void addNewAbilty(Ability ability) {
         GameObject newIcon;
         newIcon = Instantiate(abiltyIcon, this.transform);
-        newIcon.GetComponent<Image>().sprite = ability.Icon;
+        newIcon.GetComponent<Image>().sprite = ability.icon;
     }
 
 }

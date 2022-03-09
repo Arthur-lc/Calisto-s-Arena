@@ -5,10 +5,11 @@ using UnityEngine;
 public class Ability : ScriptableObject
 {
     public new string name;
-    public Sprite Icon;
+    public Sprite icon;
     public float cooldownTime;
     public float activeTime;
-    public GameObject arrow;
+    [TextArea] public string description = "place holder";
+    [System.NonSerialized] public GameObject arrow;
 
     [Tooltip("Hide the Arrow wnhen ability is active")]
     public bool hideArrow = false;
