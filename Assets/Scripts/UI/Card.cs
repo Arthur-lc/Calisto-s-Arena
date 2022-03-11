@@ -17,4 +17,14 @@ public class Card : MonoBehaviour
         title.text = ability.name;
         description.text = ability.description;
     }
+
+    public void onSelected() {
+        Events.onCardSelected.Invoke(this);
+    }
+
+    public void SelectCard(KeyCode key) {
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        AbilityManager abilityManager = FindObjectOfType<AbilityManager>();
+        abilityManager.AddNewAbility(ability, key);
+    }
 }

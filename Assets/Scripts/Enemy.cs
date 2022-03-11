@@ -42,9 +42,10 @@ public class Enemy : MonoBehaviour
         rb.MovePosition(transform.position + distortion + moveDir * Time.fixedDeltaTime * speed);
     }
 
-    /*public void GetAway(Transform target) {
-        Vector2 moveDir = transform.position - target.position;
+    //NAO TESTADO
+    public void GetAway(Transform target) { 
+        Vector3 moveDir = transform.position - target.position;
         moveDir = moveDir.normalized;
-        rb.velocity = moveDir * speed;
-    }*/
+        rb.MovePosition(transform.position + moveDir * Time.fixedDeltaTime * speed);
+    }
 }

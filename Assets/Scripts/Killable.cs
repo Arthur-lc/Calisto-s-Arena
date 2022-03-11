@@ -5,6 +5,12 @@ using UnityEngine;
 public class Killable : MonoBehaviour
 {
     [SerializeField] private float hp = 1f;
+    HordeSystem hordeSystem;
+
+    private void Start() {
+        hordeSystem = FindObjectOfType<HordeSystem>();
+        hordeSystem.AddEnemy();
+    }
 
     public void TakeDamage(float damageTaken) {
         hp -= damageTaken;
@@ -13,6 +19,7 @@ public class Killable : MonoBehaviour
     }
 
     public void Die() {
+        hordeSystem.SubtractEnemy();
         Destroy(this.gameObject);
     }
 }

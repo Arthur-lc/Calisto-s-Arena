@@ -17,35 +17,33 @@ public class HordeSystem : MonoBehaviour
         public EnemyGroup[] enemyGroups;
     }
     
-    public Ability ability; //gambiarra
-    public KeyCode key; //gambiarra
+    public GameObject cardSelection;
 
     [Tooltip("Area where enemies will spawn")]
     public float radius;
 
     [SerializeField] public Wave[] waves;
     private int currentWaveNumber = 0;
-
-
     private Wave currentWave;
     private AbilityManager abilityManager;
+
+    [System.NonSerialized] public int enemyCount;
+
+    private void OnEnable() {
+        Events.newWave.AddListener(NewWave);
+
+    }
+
+    private void OnDisable() {
+        Events.newWave.RemoveListener(NewWave);
+    }
 
     private void Start() {
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         abilityManager = player.GetComponent<AbilityManager>();
     }
 
-    void Update()
-    {
-        // gabiarra
-        if (Input.GetKeyDown(KeyCode.K)) {
-            EndWave();
-            NewWave();
-        }
-        // gambiarra
-    }
-
-    private void NewWave() {
+    public void NewWave() {
         currentWave = waves[currentWaveNumber];
         foreach(var enemyGroup in currentWave.enemyGroups) 
         {
@@ -53,24 +51,33 @@ public class HordeSystem : MonoBehaviour
             {
                 GameObject newEnemy = Instantiate(enemyGroup.enemy);
                 newEnemy.GetComponent<Enemy>().Spawn(radius);
-
-                /*
-                Vector2 enemyPosition = RandomPolar(radius);
-                
-                newEnemy.transform.position = enemyPosition;
-                */
             }
         }
         currentWaveNumber++;
     }
 
-    private void EndWave() {
+    public void EndWave() {
         Debug.Log("end fase");
-        abilityManager.AddNewAbility(ability, key);
+        Invoke("activateCardSelection", .5f);
+    }
+
+    private void activateCardSelection() {
+        cardSelection.SetActive(true);
     }
 
     private void OnDrawGizmosSelected() {
         Gizmos.color = Color.yellow;
         Gizmos.DrawSphere(Vector3.zero, radius);
+    }
+
+    public void AddEnemy() {
+        enemyCount++;
+    }
+
+    public void SubtractEnemy() {
+        enemyCount--;
+        if (enemyCount == 0) {
+            EndWave();
+        }
     }
 }
