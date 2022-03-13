@@ -8,7 +8,9 @@ public class Events
     public static readonly Evt onGameOver = new Evt();
     public static readonly Evt newWave = new Evt();
     public static readonly Evt<Card> onCardSelected = new Evt<Card>();
-    public static readonly Evt<KeyCode> onKeySelected = new Evt<KeyCode>();
+    public static readonly Evt<SkillSlot> onSlotSelected = new Evt<SkillSlot>();
+    public static readonly Evt<Ability> onDragingAbility = new Evt<Ability>();
+
 }
 
 public class Evt {
@@ -36,6 +38,7 @@ public class Evt<T> {
     }
 
     public void AddListener (Action<T> listener) {
+        _action -= listener;
         _action += listener;
     }
 

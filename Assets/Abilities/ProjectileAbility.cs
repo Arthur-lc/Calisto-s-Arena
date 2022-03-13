@@ -7,7 +7,7 @@ public class ProjectileAbility : Ability
 {
     public float damage;
     public GameObject projectile;
-    private GameObject newClone;
+    private GameObject newProjectile;
 
     public override void Activate(GameObject parent)
     {
@@ -15,10 +15,10 @@ public class ProjectileAbility : Ability
 
         arrow = parent.GetComponent<MovementController>().pointingArrow;
         
-        newClone = Instantiate(projectile, arrow.transform.position, arrow.transform.rotation);
+        newProjectile = Instantiate(projectile, arrow.transform.position, arrow.transform.rotation);
 
         //make sure that the hability does damage
-        if(newClone.TryGetComponent<DealsDamage>(out DealsDamage dealsDamage)) {
+        if(newProjectile.TryGetComponent<DealsDamage>(out DealsDamage dealsDamage)) {
             dealsDamage.damage = damage;
         }
     }

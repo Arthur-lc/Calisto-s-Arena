@@ -16,11 +16,6 @@ public class AbilityHolder : MonoBehaviour
         cooldown
     }
     AbilityState state = AbilityState.ready;
-
-    public AbilityHolder(Ability newAbility, KeyCode newKey) {
-        ability = newAbility;
-        key = newKey;
-    }
     
     void Update()
     {

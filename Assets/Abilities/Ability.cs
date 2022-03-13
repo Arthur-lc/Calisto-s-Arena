@@ -8,6 +8,7 @@ public class Ability : ScriptableObject
     public Sprite icon;
     public float cooldownTime;
     public float activeTime;
+    public int lvl = 1;
     [TextArea] public string description = "place holder";
     [System.NonSerialized] public GameObject arrow;
 

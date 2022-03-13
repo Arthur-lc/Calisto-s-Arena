@@ -13,7 +13,7 @@ public class KeyPrompt : MonoBehaviour
 
     private void OnEnable() {
         key = KeyCode.None;
-        keyText.text = "- Pres a key -";
+        keyText.text = "- Press a key -";
     }
 
     private void Update() {
@@ -22,7 +22,7 @@ public class KeyPrompt : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Return))
             {
-                Events.onKeySelected.Invoke(key);
+                //Events.onKeySelected.Invoke(key);
                 gameObject.SetActive(false);
             }
             else if (Input.GetKeyDown(KeyCode.Escape))
@@ -31,11 +31,10 @@ public class KeyPrompt : MonoBehaviour
             }
             else 
             {
-                keyText.text = "- Pres " + key + " -";
+                keyText.text = "- Press " + key + " -";
             }
         }
     }
-
 
     //return witch key was pressed
     private KeyCode KeyPressed() {
