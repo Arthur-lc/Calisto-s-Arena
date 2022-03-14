@@ -13,19 +13,6 @@ public class AbilityManager : MonoBehaviour
         actionBar = FindObjectOfType<ActionBar>();
     }
 
-    public void AddNewAbility(Ability ability, KeyCode key) {
-        //TryGetComponent<AbilityHolder>(out AbilityHolder holder);
-        //component
-        if (FindHolder(ability, out AbilityHolder holder))
-        {
-            holder.ability.lvl++;
-        }
-        else
-        {
-            newAbiltyHolder = gameObject.AddComponent<AbilityHolder>();
-        }
-    }
-
     private bool FindHolder(Ability ability, out AbilityHolder holder) {
         // retorna o AbilityHolder que contem a habilidade
         foreach (var AHolder in abilityList)

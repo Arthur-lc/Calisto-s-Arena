@@ -15,6 +15,10 @@ public class Ability : ScriptableObject
     [Tooltip("Hide the Arrow wnhen ability is active")]
     public bool hideArrow = false;
 
+    private void Awake() {
+        lvl = 1;
+    }
+
     public virtual void Activate(GameObject parent) {
         arrow = parent.GetComponent<MovementController>().pointingArrow;
         if (hideArrow) {

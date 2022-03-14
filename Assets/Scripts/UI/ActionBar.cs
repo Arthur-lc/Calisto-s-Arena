@@ -9,7 +9,6 @@ public class ActionBar : MonoBehaviour
     private Ability draggingAbility;
 
     public void OnSlotSelected(SkillSlot slot) {
-        Debug.Log("clicou no slot");
         if (isDragging)
         {
             Ability aux = slot.ability;
@@ -39,6 +38,5 @@ public class ActionBar : MonoBehaviour
     public void AddNewAbility(Ability ability) {
         isDragging = true;
         draggingAbility = ability;
-        Debug.Log("Agora ta draggind, abilidade: " + ability);
     }
 }

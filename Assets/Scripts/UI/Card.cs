@@ -24,11 +24,22 @@ public class Card : MonoBehaviour
     public void Clicked() {
         Debug.Log("clicou na carta da " + ability);
         FindObjectOfType<ActionBar>().AddNewAbility(ability);
+        if (HaveAbility(out AbilityHolder holder)) 
+        {
+            holder.Upgrade();
+        }
     }
 
-    /*public void SelectCard(KeyCode key) {
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
-        AbilityManager abilityManager = FindObjectOfType<AbilityManager>();
-        abilityManager.AddNewAbility(ability, key);
-    }*/
+    private bool HaveAbility(out AbilityHolder abilityHolder) {
+        foreach (var holder in FindObjectsOfType<AbilityHolder>())
+        {
+            if (holder.ability == ability)
+            {
+                abilityHolder = holder;
+                return true;
+            }
+        }
+        abilityHolder = null;
+        return false;
+    }
 }

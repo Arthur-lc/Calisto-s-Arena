@@ -6,6 +6,7 @@ public class AbilityHolder : MonoBehaviour
 {
     [SerializeField] public Ability ability;
     [SerializeField] public KeyCode key; //input to activate the ability
+    //public int abilityLevel = 1;
 
     float cooldownTime;
     float activeTime;
@@ -19,36 +20,49 @@ public class AbilityHolder : MonoBehaviour
     
     void Update()
     {
-        switch (state)
+        if (FindObjectOfType<GameManager>().state == GameState.Playing && ability != null)
         {
-            case AbilityState.ready:
-                if(Input.GetKeyDown(key)) {
-                    ability.Activate(gameObject);
-                    state = AbilityState.active;
-                    activeTime = ability.activeTime;
-                }
+            switch (state)
+            {
+                case AbilityState.ready:
+                    if(Input.GetKeyDown(key)) {
+                        ability.Activate(gameObject);
+                        state = AbilityState.active;
+                        activeTime = ability.activeTime;
+                    }
 
-            break;
-            case AbilityState.active:
-                if (activeTime > 0) {
-                    activeTime -= Time.deltaTime;
-                }
-                else {
-                    state = AbilityState.cooldown;
-                    ability.onCooldown();    
-                }
+                break;
+                case AbilityState.active:
+                    if (activeTime > 0) {
+                        activeTime -= Time.deltaTime;
+                    }
+                    else {
+                        state = AbilityState.cooldown;
+                        ability.onCooldown();    
+                    }
 
-            break;
-            case AbilityState.cooldown:
-                if (cooldownTime > 0) {
-                    cooldownTime -= Time.deltaTime;
-                }
-                else {
-                    state = AbilityState.ready;
-                    ability.onReady();
-                }
+                break;
+                case AbilityState.cooldown:
+                    if (cooldownTime > 0) {
+                        cooldownTime -= Time.deltaTime;
+                    }
+                    else {
+                        state = AbilityState.ready;
+                        ability.onReady();
+                    }
 
-            break;
+                break;
+            }
+        }
+    }
+
+    public void Upgrade() {
+        //abilityLevel++;
+        ability.lvl++;
+
+        foreach (var slot in FindObjectsOfType<SkillSlot>())
+        {
+            slot.Reload();
         }
     }
 }

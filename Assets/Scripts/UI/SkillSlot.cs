@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 using UnityEngine.UI;
 
 public class SkillSlot : MonoBehaviour
@@ -12,6 +13,8 @@ public class SkillSlot : MonoBehaviour
     [Header("References")]
     public Image iconHolder;
     public Sprite baseImage;
+    public TextMeshProUGUI lvlText;
+
     private AbilityHolder abilityHolder;
 
     private void Start() {
@@ -19,31 +22,29 @@ public class SkillSlot : MonoBehaviour
         abilityHolder = player.AddComponent<AbilityHolder>();
         abilityHolder.key = keyCode;
 
-        if (ability == null)
-        {
-            isEmpty = true;
-            iconHolder.sprite = baseImage;
-        }
-        else
-        {
-            iconHolder.sprite = ability.icon;
-            isEmpty = false;
-            abilityHolder.ability = ability;
-        }
+
+        Reload();
     }
     
     public void UpdateAbility(Ability newAbility) {
         ability = newAbility;
-        if (newAbility == null)
+        Reload();
+    }
+
+    public void Reload() {
+        if (ability == null)
         {
             isEmpty = true;
             iconHolder.sprite = baseImage;
+            lvlText.text = "";
         }
         else
         {
-            iconHolder.sprite = ability.icon;
             isEmpty = false;
-            abilityHolder.ability = newAbility;
+            abilityHolder.ability = ability;
+            iconHolder.sprite = ability.icon;
+            //lvlText.text = abilityHolder.abilityLevel.ToString();
+            lvlText.text = ability.lvl.ToString();
         }
     }
 

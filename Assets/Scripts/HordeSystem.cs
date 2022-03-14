@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-
 public class HordeSystem : MonoBehaviour
 {
     [System.Serializable] public struct EnemyGroup
@@ -41,6 +40,12 @@ public class HordeSystem : MonoBehaviour
     private void Start() {
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         abilityManager = player.GetComponent<AbilityManager>();
+    }
+
+    private void Update() {
+        // D E B U G
+        if (Input.GetKeyDown(KeyCode.K))
+            NewWave();
     }
 
     public void NewWave() {
