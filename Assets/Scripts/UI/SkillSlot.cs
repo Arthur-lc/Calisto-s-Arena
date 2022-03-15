@@ -20,18 +20,7 @@ public class SkillSlot : MonoBehaviour
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         abilityHolder = player.AddComponent<AbilityHolder>();
         abilityHolder.key = keyCode;
-
-        if (ability == null)
-        {
-            isEmpty = true;
-            iconHolder.sprite = baseImage;
-        }
-        else
-        {
-            iconHolder.sprite = ability.icon;
-            isEmpty = false;
-            abilityHolder.ability = ability;
-        }
+        Reload();
     }
     
     public void UpdateAbility(Ability newAbility) {
@@ -43,11 +32,14 @@ public class SkillSlot : MonoBehaviour
         if (ability == null)
         {
             isEmpty = true;
+            abilityHolder.ability = null;
             iconHolder.sprite = baseImage;
+            lvlText.text = "";
         }
         else
         {
             isEmpty = false;
+            abilityHolder.ability = ability;
             iconHolder.sprite = ability.icon;
             lvlText.text = abilityHolder.abilityLevel.ToString();
         }
