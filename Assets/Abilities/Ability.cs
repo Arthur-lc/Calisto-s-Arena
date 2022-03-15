@@ -8,19 +8,14 @@ public class Ability : ScriptableObject
     public Sprite icon;
     public float cooldownTime;
     public float activeTime;
-    public int lvl = 1;
     [TextArea] public string description = "place holder";
     [System.NonSerialized] public GameObject arrow;
 
     [Tooltip("Hide the Arrow wnhen ability is active")]
     public bool hideArrow = false;
 
-    private void Awake() {
-        lvl = 1;
-    }
-
-    public virtual void Activate(GameObject parent) {
-        arrow = parent.GetComponent<MovementController>().pointingArrow;
+    public virtual void Activate(AbilityHolder holder) {
+        arrow = holder.GetComponent<MovementController>().pointingArrow;
         if (hideArrow) {
             arrow.GetComponent<SpriteRenderer>().enabled = false;
         }

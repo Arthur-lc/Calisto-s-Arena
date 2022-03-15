@@ -9,11 +9,10 @@ public class ProjectileAbility : Ability
     public GameObject projectile;
     private GameObject newProjectile;
 
-    public override void Activate(GameObject parent)
-    {
-        base.Activate(parent);
+    public override void Activate(AbilityHolder holder) {
+        base.Activate(holder);
 
-        arrow = parent.GetComponent<MovementController>().pointingArrow;
+        arrow = holder.GetComponent<MovementController>().pointingArrow;
         
         newProjectile = Instantiate(projectile, arrow.transform.position, arrow.transform.rotation);
 

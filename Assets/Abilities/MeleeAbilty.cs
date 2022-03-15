@@ -15,16 +15,17 @@ public class MeleeAbilty : Ability
 
     private GameObject clone;
 
-    public override void Activate(GameObject parent)
+    public override void Activate(AbilityHolder holder)
     {
-        base.Activate(parent);
+        base.Activate(holder);
         
-        clone = Instantiate(attackObjetct, arrow.transform.position, arrow.transform.rotation, parent.transform);
+        clone = Instantiate(attackObjetct, arrow.transform.position, arrow.transform.rotation, holder.transform);
 
         //make shure that the hability does damage
         if(clone.TryGetComponent<DealsDamage>(out DealsDamage dealsDamage)) {
             dealsDamage.damage = damage;
         }
+
     }
 
     public override void onCooldown()

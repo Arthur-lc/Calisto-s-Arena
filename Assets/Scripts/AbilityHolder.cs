@@ -6,7 +6,7 @@ public class AbilityHolder : MonoBehaviour
 {
     [SerializeField] public Ability ability;
     [SerializeField] public KeyCode key; //input to activate the ability
-    //public int abilityLevel = 1;
+    public int abilityLevel = 1;
 
     float cooldownTime;
     float activeTime;
@@ -26,7 +26,7 @@ public class AbilityHolder : MonoBehaviour
             {
                 case AbilityState.ready:
                     if(Input.GetKeyDown(key)) {
-                        ability.Activate(gameObject);
+                        ability.Activate(this);
                         state = AbilityState.active;
                         activeTime = ability.activeTime;
                     }
@@ -57,8 +57,7 @@ public class AbilityHolder : MonoBehaviour
     }
 
     public void Upgrade() {
-        //abilityLevel++;
-        ability.lvl++;
+        abilityLevel++;
 
         foreach (var slot in FindObjectsOfType<SkillSlot>())
         {

@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
     
     void Start()
     {
-        state = GameState.BuyingAbility;
+        //state = GameState.BuyingAbility;
     }
 
     public void UpdateGameState(GameState newState) {
