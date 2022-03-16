@@ -22,7 +22,7 @@ public class spawner : MonoBehaviour
        
         if (cloneCount <= howMany)
         {
-            clone = Instantiate(whatToSpawn, transform.position, transform.rotation);
+            clone = Instantiate(whatToSpawn, transform.position, transform.rotation, transform.parent);
             cloneCount++;
         }
     }

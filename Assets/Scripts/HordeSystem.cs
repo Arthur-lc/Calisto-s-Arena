@@ -16,7 +16,7 @@ public class HordeSystem : MonoBehaviour
         public EnemyGroup[] enemyGroups;
     }
     
-    public GameObject cardSelection;
+    public GameManager gameManager;
 
     [Tooltip("Area where enemies will spawn")]
     public float radius;
@@ -24,28 +24,35 @@ public class HordeSystem : MonoBehaviour
     [SerializeField] public Wave[] waves;
     private int currentWaveNumber = 0;
     private Wave currentWave;
-    private AbilityManager abilityManager;
 
     [System.NonSerialized] public int enemyCount;
 
     private void OnEnable() {
-        Events.newWave.AddListener(NewWave);
+        Events.onStartWave.AddListener(NewWave);
+        Events.onEnemySpawned.AddListener(AddEnemy);
+        Events.onEnemyDied.AddListener(SubtractEnemy);
 
     }
 
     private void OnDisable() {
-        Events.newWave.RemoveListener(NewWave);
+        Events.onStartWave.RemoveListener(NewWave);
+        Events.onEnemySpawned.RemoveListener(NewWave);
+        Events.onEnemyDied.RemoveListener(NewWave);
     }
 
     private void Start() {
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
-        abilityManager = player.GetComponent<AbilityManager>();
+        gameManager = FindObjectOfType<GameManager>();
     }
 
     private void Update() {
         // D E B U G
-        if (Input.GetKeyDown(KeyCode.K))
-            NewWave();
+        //if (Input.GetKeyDown(KeyCode.K))
+        //    NewWave();
+
+        if(transform.childCount == 0 && gameManager.state == GameState.Playing)
+        {
+            EndWave();
+        }
     }
 
     public void NewWave() {
@@ -54,7 +61,7 @@ public class HordeSystem : MonoBehaviour
         {
             for (int i = 0; i < enemyGroup.quantity; i++)
             {
-                GameObject newEnemy = Instantiate(enemyGroup.enemy);
+                GameObject newEnemy = Instantiate(enemyGroup.enemy, this.transform, true);
                 newEnemy.GetComponent<Enemy>().Spawn(radius);
             }
         }
@@ -67,7 +74,7 @@ public class HordeSystem : MonoBehaviour
     }
 
     private void activateCardSelection() {
-        cardSelection.SetActive(true);
+        gameManager.UpdateGameState(GameState.BuyingAbility);
     }
 
     private void OnDrawGizmosSelected() {
@@ -77,11 +84,18 @@ public class HordeSystem : MonoBehaviour
 
     public void AddEnemy() {
         enemyCount++;
+        Debug.Log(enemyCount);
     }
 
     public void SubtractEnemy() {
-        enemyCount--;
+        /*enemyCount--;
+        Debug.Log(enemyCount);
         if (enemyCount == 0) {
+            EndWave();
+        }*/
+
+        if(!GameObject.FindGameObjectWithTag("Enemy"))
+        {
             EndWave();
         }
     }

@@ -8,15 +8,16 @@ public class AbilityHolder : MonoBehaviour
     [SerializeField] public KeyCode key; //input to activate the ability
     public int abilityLevel = 1;
 
-    float cooldownTime;
-    float activeTime;
+    public float cooldownTime;
+    public float activeTime;
 
-    enum AbilityState {
+    public enum AbilityState {
         ready,
         active,
         cooldown
     }
-    AbilityState state = AbilityState.ready;
+    public AbilityState state = AbilityState.ready;
+
     
     void Update()
     {
@@ -38,7 +39,8 @@ public class AbilityHolder : MonoBehaviour
                     }
                     else {
                         state = AbilityState.cooldown;
-                        ability.onCooldown();    
+                        ability.onCooldown(); 
+                        cooldownTime = ability.cooldownTime;   
                     }
 
                 break;
@@ -48,6 +50,7 @@ public class AbilityHolder : MonoBehaviour
                     }
                     else {
                         state = AbilityState.ready;
+                        //cooldownTime = ability.cooldownTime;
                         ability.onReady();
                     }
 
@@ -56,7 +59,7 @@ public class AbilityHolder : MonoBehaviour
         }
     }
 
-    public void Upgrade() {
+    public void UpgradeAbility() {
         abilityLevel++;
 
         foreach (var slot in FindObjectsOfType<SkillSlot>())

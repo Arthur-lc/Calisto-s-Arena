@@ -9,17 +9,18 @@ public class Killable : MonoBehaviour
 
     private void Start() {
         hordeSystem = FindObjectOfType<HordeSystem>();
-        hordeSystem.AddEnemy();
+        Events.onEnemySpawned.Invoke();
     }
 
     public void TakeDamage(float damageTaken) {
-        hp -= damageTaken;
+        if (hp > 0)
+            hp -= damageTaken;
         if (hp <= 0)
             Die();
     }
 
     public void Die() {
-        hordeSystem.SubtractEnemy();
+        Events.onEnemyDied.Invoke();
         Destroy(this.gameObject);
     }
 }

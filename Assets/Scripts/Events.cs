@@ -6,11 +6,10 @@ using System;
 public class Events 
 {
     public static readonly Evt onGameOver = new Evt();
-    public static readonly Evt newWave = new Evt();
-    public static readonly Evt<Card> onCardSelected = new Evt<Card>();
-    public static readonly Evt<SkillSlot> onSlotSelected = new Evt<SkillSlot>();
-    public static readonly Evt<Ability> onDragingAbility = new Evt<Ability>();
-
+    public static readonly Evt onBuyingAbility = new Evt();
+    public static readonly Evt onStartWave = new Evt();
+    public static readonly Evt onEnemySpawned = new Evt();
+    public static readonly Evt onEnemyDied = new Evt();
 }
 
 public class Evt {

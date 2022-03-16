@@ -14,6 +14,8 @@ public class SkillSlot : MonoBehaviour
     public Image iconHolder;
     public TextMeshProUGUI lvlText;
     public Sprite baseImage;
+    public TextMeshProUGUI timeText;
+
     private AbilityHolder abilityHolder;
 
     private void Start() {
@@ -21,6 +23,15 @@ public class SkillSlot : MonoBehaviour
         abilityHolder = player.AddComponent<AbilityHolder>();
         abilityHolder.key = keyCode;
         Reload();
+    }
+
+    private void Update() {
+        if (abilityHolder.state == AbilityHolder.AbilityState.cooldown)
+            timeText.text = ((int)abilityHolder.cooldownTime).ToString();
+        else
+        {
+            timeText.text = "";
+        }
     }
     
     public void UpdateAbility(Ability newAbility) {

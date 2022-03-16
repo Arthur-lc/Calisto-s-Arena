@@ -10,12 +10,11 @@ public class Card : MonoBehaviour
     public Image image;
     public TextMeshProUGUI title;
     public TextMeshProUGUI description;
-
-    private void OnEnable() {
-        
-    }
+    private ActionBar actionBar;
 
     void Start() {
+        actionBar = FindObjectOfType<ActionBar>();
+
         image.sprite = ability.icon;
         title.text = ability.name;
         description.text = ability.description;
@@ -23,10 +22,16 @@ public class Card : MonoBehaviour
 
     public void Clicked() {
         Debug.Log("clicou na carta da " + ability);
-        FindObjectOfType<ActionBar>().AddNewAbility(ability);
-        if (HaveAbility(out AbilityHolder holder)) 
+        if (!actionBar.wasPurchaseEffected)
         {
-            holder.Upgrade();
+            if (HaveAbility(out AbilityHolder holder)) 
+            {
+                holder.UpgradeAbility();
+            }
+            else
+            {
+                actionBar.AddNewAbility(ability);
+            }
         }
     }
 
