@@ -26,7 +26,7 @@ public class SkillSlot : MonoBehaviour
     }
 
     private void Update() {
-        if (abilityHolder.state == AbilityHolder.AbilityState.cooldown)
+        if (abilityHolder.state == AbilityHolder.AbilityState.cooldown && GameManager.Instance.state == GameState.Playing)
             timeText.text = ((int)abilityHolder.cooldownTime).ToString();
         else
         {

@@ -18,6 +18,18 @@ public class AbilityHolder : MonoBehaviour
     }
     public AbilityState state = AbilityState.ready;
 
+    private void OnEnable() {
+        Events.onStartWave.AddListener(NewWave);
+    }
+
+    private void OnDisable() {
+        Events.onStartWave.RemoveListener(NewWave);
+    }
+
+    private void NewWave() {
+        cooldownTime = 0;
+    }
+
     
     void Update()
     {

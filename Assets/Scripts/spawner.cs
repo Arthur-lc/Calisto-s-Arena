@@ -10,6 +10,11 @@ public class spawner : MonoBehaviour
     private float timePassed = 0;
     private GameObject clone;
     private int cloneCount = 0;
+    private ObjectPool objectPool;
+
+    private void Start() {
+        objectPool = GetComponent<ObjectPool>();
+    }
 
     private void Update() {
         timePassed += Time.deltaTime;
@@ -20,7 +25,7 @@ public class spawner : MonoBehaviour
             timePassed = 0;
         }
        
-        if (cloneCount <= howMany)
+        if (cloneCount < howMany)
         {
             clone = Instantiate(whatToSpawn, transform.position, transform.rotation, transform.parent);
             cloneCount++;

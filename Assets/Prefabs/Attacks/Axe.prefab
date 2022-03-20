@@ -55,6 +55,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Axe
       objectReference: {fileID: 0}
+    - target: {fileID: 5282787154301785917, guid: 245c1e82ddaa86546b22572f4e9d928b, type: 3}
+      propertyPath: damage
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6503040003497254736, guid: 245c1e82ddaa86546b22572f4e9d928b, type: 3}
       propertyPath: m_Sprite
       value: 

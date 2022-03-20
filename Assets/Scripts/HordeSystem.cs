@@ -29,27 +29,21 @@ public class HordeSystem : MonoBehaviour
 
     private void OnEnable() {
         Events.onStartWave.AddListener(NewWave);
-        Events.onEnemySpawned.AddListener(AddEnemy);
-        Events.onEnemyDied.AddListener(SubtractEnemy);
+        Events.onEnemyDied.AddListener(CheckEnemyCount);
 
     }
 
     private void OnDisable() {
         Events.onStartWave.RemoveListener(NewWave);
-        Events.onEnemySpawned.RemoveListener(NewWave);
-        Events.onEnemyDied.RemoveListener(NewWave);
+        Events.onEnemyDied.RemoveListener(CheckEnemyCount);
     }
 
     private void Start() {
         gameManager = FindObjectOfType<GameManager>();
     }
 
-    private void Update() {
-        // D E B U G
-        //if (Input.GetKeyDown(KeyCode.K))
-        //    NewWave();
-
-        if(transform.childCount == 0 && gameManager.state == GameState.Playing)
+    private void CheckEnemyCount() {
+        if(transform.childCount == 1 && gameManager.state == GameState.Playing)
         {
             EndWave();
         }
@@ -61,7 +55,7 @@ public class HordeSystem : MonoBehaviour
         {
             for (int i = 0; i < enemyGroup.quantity; i++)
             {
-                GameObject newEnemy = Instantiate(enemyGroup.enemy, this.transform, true);
+                GameObject newEnemy = Instantiate(enemyGroup.enemy, this.transform);
                 newEnemy.GetComponent<Enemy>().Spawn(radius);
             }
         }

@@ -4,12 +4,25 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    private float speed;
+    public float speed = 1f;
     private Rigidbody2D rb;
+    public float damage;
+    [Tooltip("numero de inimigos que serao atingidos (-1 para ignorar)")]
+    public int piercing = -1;
     
     private void Start() {
         rb = GetComponent<Rigidbody2D>();
-        rb.velocity = transform.rotation * Vector2.up;
+        rb.velocity = (transform.rotation * Vector2.up) * speed;
+    }
+    
+    private void OnTriggerEnter2D(Collider2D other) {
+        if (other.TryGetComponent<Killable>(out Killable target) && other.tag == "Enemy") { 
+            target.TakeDamage(damage);
+            piercing--;
+            if (piercing <= 0) {
+                Destroy(this.gameObject);
+            }
+        }
     }
 
 

@@ -612,11 +612,14 @@ MonoBehaviour:
   radius: 2.54
   waves:
   - enemyGroups:
-    - quantity: 2
-      enemy: {fileID: 5063262248409514027, guid: 0449762a7c0e9a648ad9bda783b66a05, type: 3}
+    - quantity: 15
+      enemy: {fileID: 1948710152069272852, guid: 236de2f98815b0545b7637cd547bac6a, type: 3}
   - enemyGroups:
-    - quantity: 10
-      enemy: {fileID: 5063262248409514027, guid: 0449762a7c0e9a648ad9bda783b66a05, type: 3}
+    - quantity: 15
+      enemy: {fileID: 1948710152069272852, guid: 236de2f98815b0545b7637cd547bac6a, type: 3}
+  - enemyGroups:
+    - quantity: 1
+      enemy: {fileID: 3473351384263777774, guid: fadf2c37d13948043a96046c1c194a9e, type: 3}
   - enemyGroups:
     - quantity: 1
       enemy: {fileID: 3473351384263777774, guid: fadf2c37d13948043a96046c1c194a9e, type: 3}
@@ -773,7 +776,7 @@ PrefabInstance:
     - target: {fileID: 8150737854766210063, guid: 49d5e49a8c62e794b88ccf1d2c9df460, type: 3}
       propertyPath: ability
       value: 
-      objectReference: {fileID: 11400000, guid: 546827beb2c1b3641a8601f0f191e26f, type: 2}
+      objectReference: {fileID: 11400000, guid: 18025e865f014e44484e3e0316fb94b1, type: 2}
     - target: {fileID: 8801546086309405007, guid: 49d5e49a8c62e794b88ccf1d2c9df460, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1864,7 +1867,7 @@ PrefabInstance:
     - target: {fileID: 8150737854766210063, guid: 49d5e49a8c62e794b88ccf1d2c9df460, type: 3}
       propertyPath: ability
       value: 
-      objectReference: {fileID: 11400000, guid: 60d593e3371f63f4cbbc897db0c38804, type: 2}
+      objectReference: {fileID: 11400000, guid: 0fdeb9e9214c05541b3ed1eb2dc5a4b0, type: 2}
     - target: {fileID: 8801546086309405007, guid: 49d5e49a8c62e794b88ccf1d2c9df460, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

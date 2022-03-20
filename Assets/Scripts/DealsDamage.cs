@@ -11,6 +11,7 @@ public class DealsDamage : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other) {
         if (other.TryGetComponent<Killable>(out Killable target) && other.tag == "Enemy") { 
             target.TakeDamage(damage);
+            Debug.Log("piercing: " + piercing);
             piercing--;
             if (piercing == 0) {
                 Destroy(this.gameObject);
