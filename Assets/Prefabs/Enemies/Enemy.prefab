@@ -139,7 +139,10 @@ MonoBehaviour:
   playerMask:
     serializedVersion: 2
     m_Bits: 8
-  folowing: 1
+  following: 1
+  lookAtTarget: 0
+  stopAtDistance: 0
+  movementNoise: 1
 --- !u!114 &5063262248409514021
 MonoBehaviour:
   m_ObjectHideFlags: 0

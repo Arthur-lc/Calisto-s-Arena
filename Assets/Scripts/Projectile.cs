@@ -13,6 +13,7 @@ public class Projectile : MonoBehaviour
     private void Start() {
         rb = GetComponent<Rigidbody2D>();
         rb.velocity = (transform.rotation * Vector2.up) * speed;
+        Invoke("Exclude", 10f);
     }
     
     private void OnTriggerEnter2D(Collider2D other) {
@@ -25,5 +26,7 @@ public class Projectile : MonoBehaviour
         }
     }
 
-
+    private void Exclude() {
+        Destroy(this.gameObject);
+    }
 }

@@ -35,9 +35,9 @@ public class Enemy : MonoBehaviour
         return new Vector2(r * Mathf.Cos(theta), r * Mathf.Sin(theta));
     }
 
-    public void Follow(Transform target) {
+    public void Follow(Transform target, float gain = 0) {
         Vector3 moveDir = target.position - transform.position;
-        Vector3 distortion = new Vector3(Random.Range(-.0075f, .0075f), Random.Range(-.0075f, .0075f), 0);
+        Vector3 distortion = new Vector3(Random.Range(-.0075f, .0075f), Random.Range(-.0075f, .0075f), 0) * gain;
         moveDir = moveDir.normalized;
         rb.MovePosition(transform.position + distortion + moveDir * Time.fixedDeltaTime * speed);
     }
@@ -47,5 +47,11 @@ public class Enemy : MonoBehaviour
         Vector3 moveDir = transform.position - target.position;
         moveDir = moveDir.normalized;
         rb.MovePosition(transform.position + moveDir * Time.fixedDeltaTime * speed);
+    }
+
+    public void LookAt(Transform target) {
+        Vector3 dir = target.position - transform.position;
+        float angle = Mathf.Atan2(dir.y,dir.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward) * Quaternion.Euler(0,0,-90);
     }
 }

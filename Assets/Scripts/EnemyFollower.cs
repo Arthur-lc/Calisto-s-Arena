@@ -4,19 +4,26 @@ using UnityEngine;
 
 public class EnemyFollower : Enemy
 {
-    public bool folowing;
-    public override void Update()
-    {
-        base.Update();
-
-        /*if (folowing) 
-            base.Follow(base.player.transform);
-        //else
-            //base.GetAway(base.player.transform);*/
-    }
+    public bool following;
+    public bool lookAtTarget;
+    public float stopAtDistance;
+    public float movementNoise;
+    
 
     private void FixedUpdate() {
-        base.Follow(base.player.transform);
+        if (lookAtTarget)
+            LookAt(player.transform);
+
+        if (following)
+        {
+            if (Vector3.Distance(transform.position, player.transform.position) > stopAtDistance)
+                base.Follow(player.transform, movementNoise);
+        }
+    }
+
+    private void OnDrawGizmos() {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, stopAtDistance);
     }
 
 }
