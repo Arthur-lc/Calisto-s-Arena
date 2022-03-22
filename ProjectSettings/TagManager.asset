@@ -15,7 +15,7 @@ TagManager:
   - Enemy
   - PlayerAttack
   - EnemyAttack
-  - 
+  - EnemyHitBox
   - 
   - 
   - 
@@ -41,4 +41,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Enemies
+    uniqueID: 96585259
     locked: 0

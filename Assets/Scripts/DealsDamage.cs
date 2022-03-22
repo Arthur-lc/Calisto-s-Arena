@@ -4,14 +4,16 @@ using UnityEngine;
 
 public class DealsDamage : MonoBehaviour
 {
+    public LayerMask targetLayer;
     public float damage;
 
     [Tooltip("numero de inimigos que serao atingidos (-1 para ignorar)")]
     public int piercing = -1;
+
     private void OnTriggerEnter2D(Collider2D other) {
-        if (other.TryGetComponent<Killable>(out Killable target) && other.tag == "Enemy") { 
+        Debug.Log(other.name);
+        if (other.TryGetComponent<Killable>(out Killable target) && other.gameObject.layer == (other.gameObject.layer | (1 << targetLayer))) { 
             target.TakeDamage(damage);
-            Debug.Log("piercing: " + piercing);
             piercing--;
             if (piercing == 0) {
                 Destroy(this.gameObject);

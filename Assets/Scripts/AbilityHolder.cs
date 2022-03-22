@@ -26,6 +26,10 @@ public class AbilityHolder : MonoBehaviour
         Events.onStartWave.RemoveListener(NewWave);
     }
 
+    private void Start() {
+        
+    }
+
     private void NewWave() {
         cooldownTime = 0;
     }
@@ -33,7 +37,7 @@ public class AbilityHolder : MonoBehaviour
     
     void Update()
     {
-        if (FindObjectOfType<GameManager>().state == GameState.Playing && ability != null)
+        if (GameManager.Instance.state == GameState.Playing && ability != null)
         {
             switch (state)
             {
