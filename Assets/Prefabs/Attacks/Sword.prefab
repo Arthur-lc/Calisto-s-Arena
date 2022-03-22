@@ -123,3 +123,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  targetLayer:
+    serializedVersion: 2
+    m_Bits: 512
+  piercing: -1

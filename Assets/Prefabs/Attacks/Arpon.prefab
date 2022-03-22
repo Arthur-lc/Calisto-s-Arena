@@ -185,6 +185,10 @@ PrefabInstance:
       propertyPath: piercing
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4641762176144525742, guid: 745c2c1d9c8b6f24c855e7b767459618, type: 3}
+      propertyPath: targetLayer.m_Bits
+      value: 512
+      objectReference: {fileID: 0}
     - target: {fileID: 6324425542980821848, guid: 745c2c1d9c8b6f24c855e7b767459618, type: 3}
       propertyPath: m_LocalPosition.y
       value: -0.1413

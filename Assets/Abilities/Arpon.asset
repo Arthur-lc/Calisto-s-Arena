@@ -18,5 +18,5 @@ MonoBehaviour:
   activeTime: 0
   description: place holder
   hideArrow: 0
-  damage: 10
+  damage: 50
   projectile: {fileID: 2929941032798461660, guid: f80933f85f9e69e4f94051d305cfbf68, type: 3}

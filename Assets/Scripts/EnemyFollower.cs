@@ -22,7 +22,7 @@ public class EnemyFollower : Enemy
     }
 
     private void OnDrawGizmos() {
-        Gizmos.color = Color.red;
+        Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, stopAtDistance);
     }
 

@@ -21,6 +21,7 @@ public class SkillSlot : MonoBehaviour
     private void Start() {
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         abilityHolder = player.AddComponent<AbilityHolder>();
+        abilityHolder.ability = ability;
         abilityHolder.key = keyCode;
         Reload();
     }
