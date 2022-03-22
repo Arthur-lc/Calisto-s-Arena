@@ -357,6 +357,10 @@ PrefabInstance:
       propertyPath: gunPoints.Array.data[4]
       value: 
       objectReference: {fileID: 9039801736505472125}
+    - target: {fileID: 8794985382596269184, guid: 9ea801d528e4ffe44b79e7ffd2a3235c, type: 3}
+      propertyPath: hp
+      value: 15
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1777123612143303757, guid: 9ea801d528e4ffe44b79e7ffd2a3235c, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 9ea801d528e4ffe44b79e7ffd2a3235c, type: 3}

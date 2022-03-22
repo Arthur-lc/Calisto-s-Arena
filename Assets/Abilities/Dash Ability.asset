@@ -16,6 +16,6 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 62af39b760748ac44ae08a1374ee1db9, type: 3}
   cooldownTime: 2
   activeTime: 0
-  description: 
+  description: Just a dash.
   hideArrow: 0
   dashVelocity: 10

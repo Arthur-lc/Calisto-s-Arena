@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3203290117149af41acbadb0bb864ca1, type: 3}
   m_Name: Arpon
   m_EditorClassIdentifier: 
-  name: Arpon
+  name: Harpoon
   icon: {fileID: 21300000, guid: a4ce20eccc91304478276922bf9848e6, type: 3}
   cooldownTime: 1
   activeTime: 0
-  description: place holder
+  description: Throws a harpoon that pierces through enemies.
   hideArrow: 0
-  damage: 50
+  damage: 2
   projectile: {fileID: 2929941032798461660, guid: f80933f85f9e69e4f94051d305cfbf68, type: 3}

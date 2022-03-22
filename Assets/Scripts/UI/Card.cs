@@ -27,6 +27,7 @@ public class Card : MonoBehaviour
             if (HaveAbility(out AbilityHolder holder)) 
             {
                 holder.UpgradeAbility();
+                actionBar.wasPurchaseEffected = true;
             }
             else
             {

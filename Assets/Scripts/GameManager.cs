@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     public GameState state;
     
     private GameObject cardSelection;
+    private ActionBar actionBar;
 
     private void Awake() {
         Instance = this;
@@ -15,10 +16,11 @@ public class GameManager : MonoBehaviour
 
     private void Start() {
         cardSelection = GameObject.Find("CardSelection");
+        actionBar = FindObjectOfType<ActionBar>();
     }
 
     private void Update() {
-        if (Input.GetKeyDown(KeyCode.K))
+        if (Input.GetKeyDown(KeyCode.K) && actionBar.wasPurchaseEffected)
             UpdateGameState(GameState.Playing);
         if (Input.GetKeyDown(KeyCode.L))
             UpdateGameState(GameState.BuyingAbility);
