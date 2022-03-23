@@ -10,6 +10,7 @@ public class Enemy : MonoBehaviour
     public LayerMask playerMask;
 
     private void Start() {
+        Events.onEnemySpawned.Invoke();
         player = GameObject.FindGameObjectWithTag("Player");
         rb = GetComponent<Rigidbody2D>();
     }

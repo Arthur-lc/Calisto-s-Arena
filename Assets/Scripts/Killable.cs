@@ -4,22 +4,16 @@ using UnityEngine;
 
 public class Killable : MonoBehaviour
 {
-    [SerializeField] private float hp = 1f;
-    HordeSystem hordeSystem;
+    [SerializeField] public float hp = 1f;
 
-    private void Start() {
-        hordeSystem = FindObjectOfType<HordeSystem>();
-        Events.onEnemySpawned.Invoke();
-    }
-
-    public void TakeDamage(float damageTaken) {
+    public virtual void TakeDamage(float damageTaken) {
         if (hp > 0)
             hp -= damageTaken;
         if (hp <= 0)
             Die();
     }
 
-    public void Die() {
+    public virtual void Die() {
         Events.onEnemyDied.Invoke();
         Destroy(this.gameObject);
     }

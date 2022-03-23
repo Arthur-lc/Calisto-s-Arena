@@ -138,9 +138,10 @@ MonoBehaviour:
   targetLayer:
     serializedVersion: 2
     m_Bits: 8
-  speed: 1
+  targetTag: Player
   damage: 2
   piercing: 0
+  speed: 1
 --- !u!1 &7746061805285990220
 GameObject:
   m_ObjectHideFlags: 0

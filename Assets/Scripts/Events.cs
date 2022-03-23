@@ -10,6 +10,8 @@ public class Events
     public static readonly Evt onStartWave = new Evt();
     public static readonly Evt onEnemySpawned = new Evt();
     public static readonly Evt onEnemyDied = new Evt();
+    public static readonly Evt<float> onHealthChange = new Evt<float>();
+    public static readonly Evt<float> onMaxHealthChange = new Evt<float>();
 }
 
 public class Evt {
