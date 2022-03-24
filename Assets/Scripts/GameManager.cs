@@ -5,6 +5,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
+    public static ObjectPool Pool;
     public GameState state;
     
     private GameObject cardSelection;
@@ -12,6 +13,7 @@ public class GameManager : MonoBehaviour
 
     private void Awake() {
         Instance = this;
+        Pool = GetComponent<ObjectPool>();
     }
 
     private void Start() {
