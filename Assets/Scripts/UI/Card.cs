@@ -22,7 +22,8 @@ public class Card : MonoBehaviour
 
     public void Clicked() {
         Debug.Log("clicou na carta da " + ability);
-        if (!actionBar.wasPurchaseEffected)
+        actionBar.gameObject.SetActive(true);
+        if (!actionBar.wasPurchaseEffected && !actionBar.isDragging)
         {
             if (HaveAbility(out AbilityHolder holder)) 
             {

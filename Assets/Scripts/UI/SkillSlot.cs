@@ -15,8 +15,7 @@ public class SkillSlot : MonoBehaviour
     public TextMeshProUGUI lvlText;
     public Sprite baseImage;
     public TextMeshProUGUI timeText;
-
-    private AbilityHolder abilityHolder;
+    public AbilityHolder abilityHolder;
 
     private void Start() {
         GameObject player = GameObject.FindGameObjectWithTag("Player");
@@ -35,8 +34,9 @@ public class SkillSlot : MonoBehaviour
         }
     }
     
-    public void UpdateAbility(Ability newAbility) {
+    public void UpdateAbility(Ability newAbility, int newAbilityLvl = 1) {
         ability = newAbility;
+        abilityHolder.abilityLevel = newAbilityLvl;
         Reload();
     }
 
