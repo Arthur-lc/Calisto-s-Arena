@@ -14,9 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Harpoon
   icon: {fileID: 21300000, guid: a4ce20eccc91304478276922bf9848e6, type: 3}
+  maxLvl: -1
   cooldownTime: 1
   activeTime: 0
   description: Throws a harpoon that pierces through enemies.
+  lvlUpDescription: Increase the amount of enemies that get pierced.
   hideArrow: 0
   damage: 2
   projectile: {fileID: 2929941032798461660, guid: f80933f85f9e69e4f94051d305cfbf68, type: 3}

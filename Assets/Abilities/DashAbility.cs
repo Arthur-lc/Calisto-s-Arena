@@ -9,6 +9,7 @@ public class DashAbility : Ability
     
     public override void Activate(AbilityHolder holder) {
         base.Activate(holder);
+        holder.cooldownModifier = holder.abilityLevel;
 
         MovementController movement = holder.GetComponent<MovementController>();
         Rigidbody2D rb = holder.GetComponent<Rigidbody2D>();

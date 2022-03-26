@@ -6,9 +6,11 @@ public class Ability : ScriptableObject
 {
     public new string name;
     public Sprite icon;
+    public int maxLvl;
     public float cooldownTime;
     public float activeTime;
     [TextArea] public string description = "place holder";
+    [TextArea] public string lvlUpDescription = "Don´t lvl Up this ability, it's not working properly";
     [System.NonSerialized] public GameObject arrow;
 
     [Tooltip("Hide the Arrow wnhen ability is active")]

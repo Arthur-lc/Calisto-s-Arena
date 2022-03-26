@@ -14,9 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Tiro
   icon: {fileID: 21300000, guid: c85de3fb469b1d346ab0e48a700f72d8, type: 3}
+  maxLvl: 0
   cooldownTime: 1
   activeTime: 0.1
   description: A magic progectile
+  lvlUpDescription: "Don\xB4t lvl Up this ability, it's not working properly"
   hideArrow: 1
   damage: 1
   projectile: {fileID: 2929941032798461660, guid: 96b789b5a075b64499603d543c9122e6, type: 3}

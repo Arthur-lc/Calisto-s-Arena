@@ -14,9 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Axe
   icon: {fileID: 21300000, guid: 23136eb08df86ea4680bc45927a1c150, type: 3}
+  maxLvl: 2
   cooldownTime: 1.2
   activeTime: 0.3
   description: Heavy attack on mouse direction.
+  lvlUpDescription: "Don\xB4t lvl Up this ability, it's not working properly"
   hideArrow: 1
   damage: 3
   attackObjetct: {fileID: 3928059022713990374, guid: 6fe5c05daa82240479c898f7ace04712, type: 3}

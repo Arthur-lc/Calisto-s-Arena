@@ -15,9 +15,25 @@ public class Card : MonoBehaviour
     void Start() {
         actionBar = FindObjectOfType<ActionBar>();
 
-        image.sprite = ability.icon;
-        title.text = ability.name;
-        description.text = ability.description;
+        UpdateCard(ability);
+    }
+
+    public void UpdateCard(Ability newAbility) {
+        if (newAbility == null)
+        {
+            Debug.LogWarning("Ability is empty");
+        }
+        else
+        {
+            ability = newAbility;
+            image.sprite = newAbility.icon;
+            title.text = newAbility.name;
+            if (HaveAbility())
+                description.text = newAbility.lvlUpDescription;
+            else
+                description.text = newAbility.description;
+        }
+
     }
 
     public void Clicked() {
@@ -47,6 +63,16 @@ public class Card : MonoBehaviour
             }
         }
         abilityHolder = null;
+        return false;
+    }
+    private bool HaveAbility() {
+        foreach (var holder in FindObjectsOfType<AbilityHolder>())
+        {
+            if (holder.ability == ability)
+            {
+                return true;
+            }
+        }
         return false;
     }
 }

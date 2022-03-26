@@ -19,12 +19,13 @@ public class GameManager : MonoBehaviour
     private void Start() {
         cardSelection = GameObject.Find("CardSelection");
         actionBar = FindObjectOfType<ActionBar>();
+        UpdateGameState(GameState.BuyingAbility);
     }
 
     private void Update() {
         if (Input.GetKeyDown(KeyCode.K) && actionBar.wasPurchaseEffected)
             UpdateGameState(GameState.Playing);
-        if (Input.GetKeyDown(KeyCode.L))
+        if (Input.GetKeyDown(KeyCode.P))
             UpdateGameState(GameState.BuyingAbility);
     }
 

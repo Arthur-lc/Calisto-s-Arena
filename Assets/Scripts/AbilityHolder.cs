@@ -9,6 +9,7 @@ public class AbilityHolder : MonoBehaviour
     public int abilityLevel = 1;
 
     public float cooldownTime;
+    public float cooldownModifier = 0;
     public float activeTime;
 
     public enum AbilityState {
@@ -56,7 +57,8 @@ public class AbilityHolder : MonoBehaviour
                     else {
                         state = AbilityState.cooldown;
                         ability.onCooldown(); 
-                        cooldownTime = ability.cooldownTime;   
+                        cooldownTime = ability.cooldownTime - cooldownModifier;
+                        Debug.Log(cooldownTime + " = " + ability.cooldownTime + " - " + cooldownModifier); 
                     }
 
                 break;
