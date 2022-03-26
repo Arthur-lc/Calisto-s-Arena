@@ -58,7 +58,6 @@ public class AbilityHolder : MonoBehaviour
                         state = AbilityState.cooldown;
                         ability.onCooldown(); 
                         cooldownTime = ability.cooldownTime - cooldownModifier;
-                        Debug.Log(cooldownTime + " = " + ability.cooldownTime + " - " + cooldownModifier); 
                     }
 
                 break;

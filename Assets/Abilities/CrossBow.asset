@@ -17,6 +17,7 @@ MonoBehaviour:
   maxLvl: 36
   cooldownTime: 1
   activeTime: 0.1
+  sfx: {fileID: 8300000, guid: af66162561d2eed40ad49268cab318bb, type: 3}
   description: A crossbow.
   lvlUpDescription: Increases the amount of arrows.
   hideArrow: 1

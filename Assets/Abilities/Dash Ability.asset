@@ -17,6 +17,7 @@ MonoBehaviour:
   maxLvl: 5
   cooldownTime: 6
   activeTime: 0
+  sfx: {fileID: 8300000, guid: 5e1a9f876d3dafd47bc6b3dde25135fa, type: 3}
   description: Just a dash.
   lvlUpDescription: Decreases the cooldown.
   hideArrow: 0

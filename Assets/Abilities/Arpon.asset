@@ -17,6 +17,7 @@ MonoBehaviour:
   maxLvl: -1
   cooldownTime: 1
   activeTime: 0
+  sfx: {fileID: 8300000, guid: af66162561d2eed40ad49268cab318bb, type: 3}
   description: Throws a harpoon that pierces through enemies.
   lvlUpDescription: Increase the amount of enemies that get pierced.
   hideArrow: 0

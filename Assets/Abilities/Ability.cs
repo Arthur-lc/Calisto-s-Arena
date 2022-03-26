@@ -9,6 +9,7 @@ public class Ability : ScriptableObject
     public int maxLvl;
     public float cooldownTime;
     public float activeTime;
+    public AudioClip sfx;
     [TextArea] public string description = "place holder";
     [TextArea] public string lvlUpDescription = "Don´t lvl Up this ability, it's not working properly";
     [System.NonSerialized] public GameObject arrow;
@@ -21,6 +22,10 @@ public class Ability : ScriptableObject
         if (hideArrow) {
             arrow.GetComponent<SpriteRenderer>().enabled = false;
         }
+
+        AudioSource audioSource = holder.GetComponent<AudioSource>();
+        audioSource.pitch = Random.Range(.8f, 1.2f);
+        audioSource.PlayOneShot(sfx);
     }
     public virtual void onReady() {}
     public virtual void onCooldown() {

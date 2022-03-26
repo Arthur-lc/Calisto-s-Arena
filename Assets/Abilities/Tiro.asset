@@ -17,6 +17,7 @@ MonoBehaviour:
   maxLvl: 0
   cooldownTime: 1
   activeTime: 0.1
+  sfx: {fileID: 8300000, guid: af66162561d2eed40ad49268cab318bb, type: 3}
   description: A magic progectile
   lvlUpDescription: "Don\xB4t lvl Up this ability, it's not working properly"
   hideArrow: 1

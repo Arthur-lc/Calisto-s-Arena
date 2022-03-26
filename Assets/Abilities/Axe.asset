@@ -17,6 +17,7 @@ MonoBehaviour:
   maxLvl: 2
   cooldownTime: 1.2
   activeTime: 0.3
+  sfx: {fileID: 8300000, guid: af66162561d2eed40ad49268cab318bb, type: 3}
   description: Heavy attack on mouse direction.
   lvlUpDescription: "Don\xB4t lvl Up this ability, it's not working properly"
   hideArrow: 1

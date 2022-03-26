@@ -37,16 +37,27 @@ public class GameManager : MonoBehaviour
             case GameState.BuyingAbility:
                 cardSelection.SetActive(true);
                 Events.onBuyingAbility.Invoke();
+                Time.timeScale = 0;
+                CleanArena();
             
             break;
             case GameState.Playing:
                 cardSelection.SetActive(false);
                 Events.onStartWave.Invoke();
+                Time.timeScale = 1;
             
             break;
             default:
 
             break;
+        }
+    }
+
+    public void CleanArena() {
+        GameObject[] projectiles = GameObject.FindGameObjectsWithTag("Projectile");
+        foreach (GameObject projectile in projectiles)
+        {
+            Destroy(projectile);
         }
     }
 }

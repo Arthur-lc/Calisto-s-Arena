@@ -6,8 +6,10 @@ public class Killable : MonoBehaviour
 {
     [SerializeField] public float hp = 1f;
     [System.NonSerialized] public float maxHp;
+    private AudioSource audioSource;
 
     private void Start() {
+        audioSource = GetComponent<AudioSource>();
         maxHp = hp;
     }
 
@@ -18,6 +20,10 @@ public class Killable : MonoBehaviour
         if (hp <= 0)
         {
             Die();
+        }
+        else
+        {
+            audioSource.Play();
         }
     }
 

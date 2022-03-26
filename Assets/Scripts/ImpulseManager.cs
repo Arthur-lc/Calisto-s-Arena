@@ -14,7 +14,6 @@ public class ImpulseManager : MonoBehaviour
     }
 
     public void Shake(float magnitude = 1) {
-        Debug.Log(magnitude);
         impulseSource.GenerateImpulse(magnitude);
     }
 }
