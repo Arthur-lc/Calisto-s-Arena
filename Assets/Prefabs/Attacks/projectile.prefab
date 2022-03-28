@@ -4944,5 +4944,5 @@ MonoBehaviour:
     m_Bits: 512
   targetTag: Enemy
   damage: 1
-  piercing: 0
+  piercing: 1
   speed: 1

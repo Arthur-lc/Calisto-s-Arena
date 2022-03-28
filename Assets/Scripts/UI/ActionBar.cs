@@ -6,17 +6,35 @@ using UnityEngine.UI;
 public class ActionBar : MonoBehaviour
 {
     public bool isDragging = false;
-    private bool isAbilityNew = false;
+    public bool isDragingAbilityNew = false;
     public bool wasPurchaseEffected;
     private Ability draggingAbility;
     private int draggingAbilityLvl;
 
+    [Header("UX / turotial")]
+    public GameObject ttrlChoseSlot;
+    public GameObject ttrlChoseCard;
+    public GameObject btnContinue;
+
     private void OnEnable() {
         Events.onBuyingAbility.AddListener(InitiatingPurchase);
+        Events.onPurchaseEffected.AddListener(PurchaseEffected);
     }
 
     private void OnDisable() {
         Events.onBuyingAbility.RemoveListener(InitiatingPurchase);
+        Events.onPurchaseEffected.RemoveListener(PurchaseEffected);
+    }
+
+    private void Start() {
+        
+    }
+
+    private void Update() {
+        ttrlChoseSlot.SetActive(isDragging);
+        ttrlChoseCard.SetActive(!wasPurchaseEffected);
+        if(GameManager.Instance.state == GameState.BuyingAbility && wasPurchaseEffected)
+            btnContinue.SetActive(!isDragging);
     }
 
     public void OnSlotSelected(SkillSlot slot) {
@@ -24,10 +42,10 @@ public class ActionBar : MonoBehaviour
         {
             Ability aux = slot.ability;
             int auxLvl = slot.abilityHolder.abilityLevel;
-            if (isAbilityNew)
+            if (isDragingAbilityNew)
             {
                 wasPurchaseEffected = true;
-                //draggingAbilityLvl = 1;
+                Events.onPurchaseEffected.Invoke();
             }
             
             if (!slot.isEmpty)
@@ -55,8 +73,16 @@ public class ActionBar : MonoBehaviour
     }
 
     public void AddNewAbility(Ability ability) {
-        isDragging = true;
-        isAbilityNew = true;
+        if (ability == null)
+        {
+            isDragging = false;
+            isDragingAbilityNew = false;
+        }
+        else
+        {
+            isDragging = true;
+            isDragingAbilityNew = true;
+        }
         draggingAbility = ability;
         draggingAbilityLvl = 1;
     }
@@ -64,5 +90,10 @@ public class ActionBar : MonoBehaviour
     private void InitiatingPurchase() {
         Debug.Log("Buying new ability");
         wasPurchaseEffected = false;
+        btnContinue.SetActive(false);
+    }
+
+    private void PurchaseEffected() {
+        wasPurchaseEffected = true;
     }
 }

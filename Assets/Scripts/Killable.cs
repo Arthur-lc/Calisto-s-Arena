@@ -7,6 +7,7 @@ public class Killable : MonoBehaviour
     [SerializeField] public float hp = 1f;
     [System.NonSerialized] public float maxHp;
     public AudioSource audioSource;
+    private bool isDead = false;
 
     private void Start() {
         audioSource = GetComponent<AudioSource>();
@@ -30,10 +31,15 @@ public class Killable : MonoBehaviour
     }
 
     public virtual void Die() {
-        Events.onEnemyDied.Invoke();
-        GameObject particle = GameManager.Pool.GetPooledObject();
-        particle.transform.position = this.transform.position;
-        particle.SetActive(true);
-        Destroy(this.gameObject);
+        if (!isDead)
+        {
+            isDead = true;
+            Debug.Log("CHAMANDO TODS OS CORNOS");
+            Events.onEnemyDied.Invoke();
+            GameObject particle = GameManager.Pool.GetPooledObject();
+            particle.transform.position = this.transform.position;
+            particle.SetActive(true);
+            Destroy(this.gameObject);
+        }
     }
 }

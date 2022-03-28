@@ -53,6 +53,10 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void Playing(){
+        UpdateGameState(GameState.Playing);
+    }
+
     public void CleanArena() {
         GameObject[] projectiles = GameObject.FindGameObjectsWithTag("Projectile");
         foreach (GameObject projectile in projectiles)

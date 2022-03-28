@@ -6,8 +6,9 @@ using System;
 public class Events 
 {
     public static readonly Evt onGameOver = new Evt();
-    public static readonly Evt onBuyingAbility = new Evt();
     public static readonly Evt onStartWave = new Evt();
+    public static readonly Evt onBuyingAbility = new Evt();
+    public static readonly Evt onPurchaseEffected = new Evt();
     public static readonly Evt onEnemySpawned = new Evt();
     public static readonly Evt onEnemyDied = new Evt();
     public static readonly Evt<float> onHealthChange = new Evt<float>();

@@ -10,12 +10,24 @@ public class Card : MonoBehaviour
     public Image image;
     public TextMeshProUGUI title;
     public TextMeshProUGUI description;
+    public GameObject pasiveTxt;
     private ActionBar actionBar;
     private PassiveBar passiveBar;
+
+    private void OnEnable() {
+        Events.onPurchaseEffected.AddListener(notInteractable);
+        Events.onBuyingAbility.AddListener(Interactable);
+    }
+
+    private void OnDisable() {
+        Events.onPurchaseEffected.RemoveListener(notInteractable);
+        Events.onBuyingAbility.RemoveListener(Interactable);
+    }
 
     void Start() {
         actionBar = FindObjectOfType<ActionBar>();
         passiveBar = FindObjectOfType<PassiveBar>();
+
 
         UpdateCard(ability);
     }
@@ -34,6 +46,9 @@ public class Card : MonoBehaviour
                 description.text = newAbility.lvlUpDescription;
             else
                 description.text = newAbility.description;
+            
+            pasiveTxt.SetActive(ability.isPassive);
+
         }
 
     }
@@ -44,9 +59,8 @@ public class Card : MonoBehaviour
         {
             if (HaveAbility(out AbilityHolder holder))
             {
-                Debug.Log("ja tenho habilidade vou upgradar");
                 holder.UpgradeAbility();
-                actionBar.wasPurchaseEffected = true;
+                Events.onPurchaseEffected.Invoke();
             }
             else
             {
@@ -54,12 +68,21 @@ public class Card : MonoBehaviour
                 {
                     Debug.Log("habilidade passiva");
                     passiveBar.AddNewAbility(ability);
-                    actionBar.wasPurchaseEffected = true;
+                    Events.onPurchaseEffected.Invoke();
                 }
                 else
                 {
                     actionBar.AddNewAbility(ability);
                 }
+            }
+        }
+        else if (actionBar.isDragging && actionBar.isDragingAbilityNew)
+        {
+            if (HaveAbility(out AbilityHolder holder))
+            {
+                holder.UpgradeAbility();
+                actionBar.AddNewAbility(null);
+                Events.onPurchaseEffected.Invoke();
             }
         }
     }
@@ -86,4 +109,7 @@ public class Card : MonoBehaviour
         }
         return false;
     }
+
+    private void Interactable() { GetComponent<Button>().interactable = true;}
+    private void notInteractable() {GetComponent<Button>().interactable = false;}
 }

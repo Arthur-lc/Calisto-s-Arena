@@ -25,25 +25,34 @@ public class HordeSystem : MonoBehaviour
     private int currentWaveNumber = 0;
     private Wave currentWave;
 
-    [System.NonSerialized] public int enemyCount;
+    public int enemyCount = 0;
 
     private void OnEnable() {
         Events.onStartWave.AddListener(NewWave);
-        Events.onEnemyDied.AddListener(CheckEnemyCount);
+        Events.onEnemyDied.AddListener(DecreaseEnemyCount);
+        Events.onEnemySpawned.AddListener(IncreaseEnemyCount);
 
     }
 
     private void OnDisable() {
         Events.onStartWave.RemoveListener(NewWave);
-        Events.onEnemyDied.RemoveListener(CheckEnemyCount);
+        Events.onEnemyDied.RemoveListener(DecreaseEnemyCount);
+        Events.onEnemySpawned.RemoveListener(IncreaseEnemyCount);
     }
 
     private void Start() {
         gameManager = FindObjectOfType<GameManager>();
+        enemyCount += transform.childCount;
     }
 
-    private void CheckEnemyCount() {
-        if(transform.childCount == 1 && gameManager.state == GameState.Playing)
+    private void IncreaseEnemyCount() {
+        enemyCount++;
+    }
+
+    private void DecreaseEnemyCount() {
+        enemyCount--;
+
+        if(enemyCount == 0)
         {
             EndWave();
         }

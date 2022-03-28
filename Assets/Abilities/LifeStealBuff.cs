@@ -15,13 +15,11 @@ public class LifeStealBuff : Ability
     }
 
     private void AplyEfect(float damage) {
-        Debug.Log(lvl);
         FindObjectOfType<PlayerKillable>().Heal(damage * lvl * 0.1f);
     }
 
     public override void Activate(AbilityHolder holder)
     {
         lvl = holder.abilityLevel;
-        Debug.Log("lvl agora e " + lvl);
     }
 }
