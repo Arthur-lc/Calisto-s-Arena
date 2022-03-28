@@ -7,6 +7,7 @@ public class Ability : ScriptableObject
     public new string name;
     public Sprite icon;
     public int maxLvl;
+    public bool isPassive;
     public float cooldownTime;
     public float activeTime;
     public AudioClip sfx;
@@ -27,6 +28,7 @@ public class Ability : ScriptableObject
         audioSource.pitch = Random.Range(.8f, 1.2f);
         audioSource.PlayOneShot(sfx);
     }
+
     public virtual void onReady() {}
     public virtual void onCooldown() {
         if (hideArrow)

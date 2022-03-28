@@ -2,22 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AbilityHolder : MonoBehaviour
+public class PassiveHolder : AbilityHolder
 {
-    [SerializeField] public Ability ability;
-    [SerializeField] public KeyCode key; //input to activate the ability
+    /*[SerializeField] public Ability ability;
     public int abilityLevel = 1;
 
     public float cooldownTime;
     public float cooldownModifier = 0;
-    public float activeTime;
-
-    public enum AbilityState {
-        ready,
-        active,
-        cooldown
-    }
-    public AbilityState state = AbilityState.ready;
+    */
 
     private void OnEnable() {
         Events.onStartWave.AddListener(ResetCooldown);
@@ -28,26 +20,22 @@ public class AbilityHolder : MonoBehaviour
     }
 
     private void Start() {
-        ResetCooldown();
+        if (ability.cooldownTime == -1)
+        {
+            ability.Activate(this);
+        }
     }
 
-    public virtual void ResetCooldown() {
-        cooldownTime = 0;
-    }
-
-    
-    public virtual void Update()
+    public override void Update()
     {
-        if (GameManager.Instance.state == GameState.Playing && ability != null)
+        if (GameManager.Instance.state == GameState.Playing && ability != null && ability.cooldownTime != -1)
         {
             switch (state)
             {
                 case AbilityState.ready:
-                    if(Input.GetKeyDown(key)) {
-                        ability.Activate(this);
-                        state = AbilityState.active;
-                        activeTime = ability.activeTime;
-                    }
+                    ability.Activate(this);
+                    state = AbilityState.active;
+                    activeTime = ability.activeTime;
 
                 break;
                 case AbilityState.active:
@@ -75,12 +63,21 @@ public class AbilityHolder : MonoBehaviour
         }
     }
 
-    public virtual void UpgradeAbility() {
-        abilityLevel++;
+    public override void ResetCooldown() {
+        cooldownTime = ability.cooldownTime - cooldownModifier;
+        state = AbilityState.cooldown;
+    }
 
-        foreach (var slot in FindObjectsOfType<SkillSlot>())
+    public override void UpgradeAbility()
+    {
+        abilityLevel++;
+        foreach (var slot in FindObjectsOfType<PassiveSlot>())
         {
             slot.Reload();
         }
+
+        if (ability.cooldownTime == -1)
+            ability.Activate(this);
+        state = AbilityState.active;
     }
 }

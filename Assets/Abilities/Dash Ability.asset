@@ -15,6 +15,7 @@ MonoBehaviour:
   name: Dash
   icon: {fileID: 21300000, guid: 62af39b760748ac44ae08a1374ee1db9, type: 3}
   maxLvl: 5
+  isPassive: 0
   cooldownTime: 6
   activeTime: 0
   sfx: {fileID: 8300000, guid: 5e1a9f876d3dafd47bc6b3dde25135fa, type: 3}

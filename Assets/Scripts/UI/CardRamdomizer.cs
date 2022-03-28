@@ -19,11 +19,9 @@ public class CardRamdomizer : MonoBehaviour
         foreach (Card card in cards)
         {
             int abilityNumber = Random.Range(0, abilities.Length);
-            Debug.Log(isAbilityRepeated(abilities[abilityNumber]));
             while (isAbilityRepeated(abilities[abilityNumber]) || !isAblityLvlUnderMax(abilities[abilityNumber]))
             {
                 abilityNumber = Random.Range(0, abilities.Length);
-                Debug.Log(isAbilityRepeated(abilities[abilityNumber]));
             }
             card.UpdateCard(abilities[abilityNumber]);
         }

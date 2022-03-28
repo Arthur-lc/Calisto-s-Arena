@@ -11,9 +11,11 @@ public class Card : MonoBehaviour
     public TextMeshProUGUI title;
     public TextMeshProUGUI description;
     private ActionBar actionBar;
+    private PassiveBar passiveBar;
 
     void Start() {
         actionBar = FindObjectOfType<ActionBar>();
+        passiveBar = FindObjectOfType<PassiveBar>();
 
         UpdateCard(ability);
     }
@@ -38,17 +40,26 @@ public class Card : MonoBehaviour
 
     public void Clicked() {
         Debug.Log("clicou na carta da " + ability);
-        actionBar.gameObject.SetActive(true);
         if (!actionBar.wasPurchaseEffected && !actionBar.isDragging)
         {
-            if (HaveAbility(out AbilityHolder holder)) 
+            if (HaveAbility(out AbilityHolder holder))
             {
+                Debug.Log("ja tenho habilidade vou upgradar");
                 holder.UpgradeAbility();
                 actionBar.wasPurchaseEffected = true;
             }
             else
             {
-                actionBar.AddNewAbility(ability);
+                if (ability.isPassive)
+                {
+                    Debug.Log("habilidade passiva");
+                    passiveBar.AddNewAbility(ability);
+                    actionBar.wasPurchaseEffected = true;
+                }
+                else
+                {
+                    actionBar.AddNewAbility(ability);
+                }
             }
         }
     }
