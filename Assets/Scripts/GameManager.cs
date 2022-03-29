@@ -38,7 +38,7 @@ public class GameManager : MonoBehaviour
                 cardSelection.SetActive(true);
                 Events.onBuyingAbility.Invoke();
                 Time.timeScale = 0;
-                CleanArena();
+                CleanProjectiles();
             
             break;
             case GameState.Playing:
@@ -57,7 +57,7 @@ public class GameManager : MonoBehaviour
         UpdateGameState(GameState.Playing);
     }
 
-    public void CleanArena() {
+    public void CleanProjectiles() {
         GameObject[] projectiles = GameObject.FindGameObjectsWithTag("Projectile");
         foreach (GameObject projectile in projectiles)
         {

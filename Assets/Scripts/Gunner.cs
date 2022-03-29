@@ -8,14 +8,18 @@ public class Gunner : MonoBehaviour
     [SerializeField] private GameObject projectile;
     [SerializeField] private Transform[] gunPoints;
     [SerializeField] private float range;
+    [SerializeField] private AudioClip audioClip;
 
     private float timeSinceShot = 0;
     private int currentGun = 0;
     private Transform player;
+    private AudioSource audioSource;
 
     private void Start() {
         Debug.Log(gunPoints.Length);
         player = GameObject.FindGameObjectWithTag("Player").transform;
+        audioSource = GetComponent<AudioSource>();
+        timeSinceShot = Random.Range(0, fireRate); // dessincronizar os inimigos
     }
 
     private void Update() {
@@ -29,6 +33,7 @@ public class Gunner : MonoBehaviour
 
     private void Shoot() {
         GameObject newProjectile = Instantiate(projectile, gunPoints[currentGun].position, transform.rotation);
+        audioSource.PlayOneShot(audioClip);
         currentGun++;
         if (currentGun >= gunPoints.Length)
             currentGun = 0;

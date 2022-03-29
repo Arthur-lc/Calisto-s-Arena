@@ -15,7 +15,7 @@ public class CardRamdomizer : MonoBehaviour
         Events.onBuyingAbility.RemoveListener(RandomizeCards);
     }
 
-    public void RandomizeCards() {
+    /*public void RandomizeCards() {
         foreach (Card card in cards)
         {
             int abilityNumber = Random.Range(0, abilities.Length);
@@ -24,6 +24,31 @@ public class CardRamdomizer : MonoBehaviour
                 abilityNumber = Random.Range(0, abilities.Length);
             }
             card.UpdateCard(abilities[abilityNumber]);
+        }
+    }*/
+
+    public void RandomizeCards() {
+        bool haveDamageAbility = false;
+        int[] abilityIds = new int[3];
+        while (abilityIds[0] == abilityIds[1] || abilityIds[1] == abilityIds[2] || abilityIds[0] == abilityIds[2] || !haveDamageAbility)
+        {
+            haveDamageAbility = false;
+            Debug.Log("haveDamageAbility" + haveDamageAbility);
+            for (int i = 0; i < cards.Length; i++)
+            {
+                abilityIds[i] = Random.Range(0, abilities.Length);
+                while (!isAblityLvlUnderMax(abilities[abilityIds[i]]))
+                {
+                    abilityIds[i] = Random.Range(0, abilities.Length);  
+                }
+                if (abilities[abilityIds[i]].type == Ability.Types.damage)
+                    haveDamageAbility = true;
+            }
+        }
+
+        for (int i = 0; i < cards.Length; i++)
+        {
+            cards[i].UpdateCard(abilities[abilityIds[i]]);
         }
     }
 

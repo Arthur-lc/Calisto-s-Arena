@@ -7,6 +7,7 @@ public class Ability : ScriptableObject
     public new string name;
     public Sprite icon;
     public int maxLvl;
+    public Types type;
     public bool isPassive;
     public float cooldownTime;
     public float activeTime;
@@ -33,5 +34,12 @@ public class Ability : ScriptableObject
     public virtual void onCooldown() {
         if (hideArrow)
             arrow.GetComponent<SpriteRenderer>().enabled = true;
+    }
+
+    public enum Types {
+        damage,
+        buff,
+        passive,
+        movement
     }
 }

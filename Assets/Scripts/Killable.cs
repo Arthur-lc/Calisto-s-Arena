@@ -6,7 +6,7 @@ public class Killable : MonoBehaviour
 {
     [SerializeField] public float hp = 1f;
     [System.NonSerialized] public float maxHp;
-    public AudioSource audioSource;
+    [System.NonSerialized] public AudioSource audioSource;
     private bool isDead = false;
 
     private void Start() {

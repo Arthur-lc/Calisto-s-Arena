@@ -233,6 +233,7 @@ MonoBehaviour:
   - {fileID: 578099668379842152}
   - {fileID: 6661355819938898152}
   range: 1.23
+  audioClip: {fileID: 8300000, guid: af66162561d2eed40ad49268cab318bb, type: 3}
 --- !u!114 &8794985382596269184
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -255,7 +256,7 @@ AudioSource:
   m_GameObject: {fileID: 4070368149610300312}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -7351749272297540054, guid: 4a909c3ff26dd874f97aea90667a71a7, type: 2}
   m_audioClip: {fileID: 8300000, guid: af66162561d2eed40ad49268cab318bb, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -264,7 +265,7 @@ AudioSource:
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 188
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
