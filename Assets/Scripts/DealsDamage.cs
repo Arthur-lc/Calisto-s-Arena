@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class DealsDamage : MonoBehaviour
 {
-    public LayerMask targetLayer;
     public string targetTag = "Enemy";
     public float damage;
 
@@ -14,11 +13,15 @@ public class DealsDamage : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other) {
         //if (other.TryGetComponent<Killable>(out Killable target) && other.gameObject.layer == (other.gameObject.layer | (1 << targetLayer))) {
         if (other.TryGetComponent<Killable>(out Killable target) && other.tag == targetTag) {
-            target.TakeDamage(damage);
-            piercing--;
-            if (piercing == 0) {
-                Destroy(this.gameObject);
-            }
+            DealDamage(target);
+        }
+    }
+
+    public virtual void DealDamage(Killable target) {
+        target.TakeDamage(damage);
+        piercing--;
+        if (piercing == 0) {
+            Destroy(this.gameObject);
         }
     }
 }

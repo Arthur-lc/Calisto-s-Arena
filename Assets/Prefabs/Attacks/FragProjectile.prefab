@@ -1,5 +1,22 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &1751239377707145171
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5284664179665041417}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55e5aaa916ea99042b9d3e30df0391da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetTag: Enemy
+  damage: 0
+  piercing: 1
+  speed: 1
+  projectile: {fileID: 5284664179665041417}
 --- !u!1001 &7061604405579179733
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -57,7 +74,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2929941032798461660, guid: 96b789b5a075b64499603d543c9122e6, type: 3}
       propertyPath: m_Name
-      value: LifeStell
+      value: FragProjectile
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 2929941032798461660, guid: 96b789b5a075b64499603d543c9122e6, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 2929941032798461659, guid: 96b789b5a075b64499603d543c9122e6, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 96b789b5a075b64499603d543c9122e6, type: 3}
+--- !u!1 &5284664179665041417 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2929941032798461660, guid: 96b789b5a075b64499603d543c9122e6, type: 3}
+  m_PrefabInstance: {fileID: 7061604405579179733}
+  m_PrefabAsset: {fileID: 0}

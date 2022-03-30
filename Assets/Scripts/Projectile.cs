@@ -5,9 +5,10 @@ using UnityEngine;
 public class Projectile : DealsDamage
 {
     public float speed = 1f;
-    private Rigidbody2D rb;
+    [System.NonSerialized] public Rigidbody2D rb;
+    [System.NonSerialized] public int abilitylvl = 1;
     
-    private void Start() {
+    public virtual void Start() {
         rb = GetComponent<Rigidbody2D>();
         rb.velocity = (transform.rotation * Vector2.up) * speed;
         Invoke("Exclude", 10f);

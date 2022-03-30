@@ -9,20 +9,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fee720f9745df63499abce8e982704c9, type: 3}
-  m_Name: CrossBow
+  m_Script: {fileID: 11500000, guid: ac3fe8fecd766a0428f97c9fee3264c8, type: 3}
+  m_Name: Death Crown Ability
   m_EditorClassIdentifier: 
-  name: CrossBow
-  icon: {fileID: 21300000, guid: 9e4d386bae1b12c4baa72558eb82dd9c, type: 3}
-  maxLvl: 36
+  name: Death Crown
+  icon: {fileID: 21300000, guid: 460316bb65bde2146b35cd9dc7878a1d, type: 3}
+  maxLvl: 0
   type: 0
-  isPassive: 0
-  cooldownTime: 2
-  activeTime: 0.1
+  isPassive: 1
+  cooldownTime: 5
+  activeTime: 0.2
   sfx: {fileID: 8300000, guid: d9419ba0bfac1e84a95418ac5851caf6, type: 3}
-  description: A crossbow.
-  lvlUpDescription: Increases the amount of arrows.
+  description: Shoot multiple projectiles around you every 6 seconds.
+  lvlUpDescription: Reduces the cooldown.
   hideArrow: 1
   damage: 1
   projectile: {fileID: 4641762176144525737, guid: 745c2c1d9c8b6f24c855e7b767459618, type: 3}
-  spread: 45

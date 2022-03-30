@@ -15,6 +15,7 @@ public class ProjectileAbility : Ability
         arrow = holder.GetComponent<MovementController>().pointingArrow;
         
         newProjectile = Instantiate(projectile, arrow.transform.position, arrow.transform.rotation);
+        newProjectile.SetActive(true);
 
         //make sure that the hability does damage
         if(newProjectile.TryGetComponent<DealsDamage>(out DealsDamage dealsDamage)) {

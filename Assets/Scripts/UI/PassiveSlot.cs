@@ -18,8 +18,15 @@ public class PassiveSlot : MonoBehaviour
         Debug.Log("start");
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         passiveHolder = player.AddComponent<PassiveHolder>();
-        //passiveHolder.ability = ability;
-        //Reload();
+    }
+
+    private void Update() {
+        if (ability.cooldownTime != 0 && passiveHolder.state == AbilityHolder.AbilityState.cooldown && GameManager.Instance.state == GameState.Playing)
+            timeText.text = ((int)passiveHolder.cooldownTime + 1).ToString();
+        else
+        {
+            timeText.text = "";
+        }
     }
 
     public void UpdateAbility(Ability newAbility, int newAbilityLvl = 1) {

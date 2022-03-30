@@ -11,7 +11,7 @@ public class LifeStealBuff : Ability
         lvl = 0;
     }
     private void OnDisable() {
-        Events.onCauseDamage.AddListener(AplyEfect);
+        Events.onCauseDamage.RemoveListener(AplyEfect);
     }
 
     private void AplyEfect(float damage) {
