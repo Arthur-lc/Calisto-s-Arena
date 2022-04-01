@@ -14,7 +14,8 @@ public class ActionBar : MonoBehaviour
     [Header("UX / turotial")]
     public GameObject ttrlChoseSlot;
     public GameObject ttrlChoseCard;
-    public GameObject btnContinue;
+    public GameObject btnPanel;
+    public Button btnContinue;
 
     private void OnEnable() {
         Events.onBuyingAbility.AddListener(InitiatingPurchase);
@@ -34,7 +35,10 @@ public class ActionBar : MonoBehaviour
         ttrlChoseSlot.SetActive(isDragging);
         ttrlChoseCard.SetActive(!wasPurchaseEffected);
         if(GameManager.Instance.state == GameState.BuyingAbility && wasPurchaseEffected)
-            btnContinue.SetActive(!isDragging);
+        {
+            btnPanel.SetActive(true);
+            btnContinue.interactable = !isDragging;
+        }
     }
 
     public void OnSlotSelected(SkillSlot slot) {
@@ -45,6 +49,7 @@ public class ActionBar : MonoBehaviour
             if (isDragingAbilityNew)
             {
                 wasPurchaseEffected = true;
+                isDragingAbilityNew = false;
                 Events.onPurchaseEffected.Invoke();
             }
             
@@ -90,7 +95,7 @@ public class ActionBar : MonoBehaviour
     private void InitiatingPurchase() {
         Debug.Log("Buying new ability");
         wasPurchaseEffected = false;
-        btnContinue.SetActive(false);
+        btnPanel.SetActive(false);
     }
 
     private void PurchaseEffected() {
