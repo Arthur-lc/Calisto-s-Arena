@@ -17,7 +17,7 @@ MonoBehaviour:
   maxLvl: 0
   type: 3
   isPassive: 0
-  cooldownTime: 0
+  cooldownTime: 5
   activeTime: 0.5
   sfx: {fileID: 8300000, guid: d9419ba0bfac1e84a95418ac5851caf6, type: 3}
   description: Teleport yourself in the direction you were going.

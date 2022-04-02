@@ -7,12 +7,13 @@ using TMPro;
 public class PassiveSlot : MonoBehaviour
 {
     public Ability ability;
+    public PassiveHolder passiveHolder;
 
     [Header("References")]
     public Image iconHolder;
     public TextMeshProUGUI lvlText;
     public TextMeshProUGUI timeText;
-    public PassiveHolder passiveHolder;
+    public Image cooldownFX;
 
     public void Initiate() {
         Debug.Log("start");
@@ -21,11 +22,15 @@ public class PassiveSlot : MonoBehaviour
     }
 
     private void Update() {
-        if (ability.cooldownTime != 0 && passiveHolder.state == AbilityHolder.AbilityState.cooldown && GameManager.Instance.state == GameState.Playing)
+        if (ability.cooldownTime != -1 && passiveHolder.state == AbilityHolder.AbilityState.cooldown && GameManager.Instance.state == GameState.Playing)
+        {
             timeText.text = ((int)passiveHolder.cooldownTime + 1).ToString();
+            cooldownFX.fillAmount = passiveHolder.cooldownTime / (ability.cooldownTime - passiveHolder.cooldownModifier);
+        }
         else
         {
             timeText.text = "";
+            cooldownFX.fillAmount = 0;
         }
     }
 

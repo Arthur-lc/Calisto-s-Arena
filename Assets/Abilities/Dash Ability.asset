@@ -24,3 +24,4 @@ MonoBehaviour:
   lvlUpDescription: Decreases the cooldown.
   hideArrow: 0
   dashVelocity: 10
+  invinerability: 0

@@ -14,12 +14,14 @@ public class PassiveBar : MonoBehaviour
     private void OnDisable() {
         Events.onStartWave.RemoveListener(ShowTTRL);
     }
+    
     public void AddNewAbility(Ability ability) {
         Debug.Log("aaaaaaaaaaaaaa");
         PassiveSlot newSlot = Instantiate(passiveSlot, transform);
         newSlot.Initiate();
         newSlot.UpdateAbility(ability);
         ttrlPassiveAbilities.SetActive(true);
+        Events.onPurchaseEffected.Invoke();
     }
 
     public void ShowTTRL() {

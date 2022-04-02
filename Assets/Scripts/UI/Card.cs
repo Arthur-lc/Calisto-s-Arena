@@ -55,7 +55,7 @@ public class Card : MonoBehaviour
 
     public void Clicked() {
         Debug.Log("clicou na carta da " + ability);
-        if (!actionBar.wasPurchaseEffected && !actionBar.isDragging)
+        if (!actionBar.wasPurchaseEffected) // && !actionBar.isDragging)
         {
             if (HaveAbility(out AbilityHolder holder))
             {
@@ -68,7 +68,7 @@ public class Card : MonoBehaviour
                 {
                     Debug.Log("habilidade passiva");
                     passiveBar.AddNewAbility(ability);
-                    Events.onPurchaseEffected.Invoke();
+                    actionBar.AddNewAbility(null);
                 }
                 else
                 {

@@ -16,7 +16,8 @@ public class SkillSlot : MonoBehaviour
     public Sprite baseImage;
     public TextMeshProUGUI timeText;
     public AbilityHolder abilityHolder;
-
+    public Image cooldownFX;
+    
     private void Start() {
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         abilityHolder = player.AddComponent<AbilityHolder>();
@@ -26,12 +27,16 @@ public class SkillSlot : MonoBehaviour
     }
 
     private void Update() {
-        if (abilityHolder.state == AbilityHolder.AbilityState.cooldown && GameManager.Instance.state == GameState.Playing)
-            timeText.text = ((int)abilityHolder.cooldownTime + 1).ToString();
-        else
-        {
-            timeText.text = "";
-        }
+            if (abilityHolder.state == AbilityHolder.AbilityState.cooldown && GameManager.Instance.state == GameState.Playing)
+            {
+                timeText.text = ((int)abilityHolder.cooldownTime + 1).ToString();
+                cooldownFX.fillAmount = abilityHolder.cooldownTime / (ability.cooldownTime - abilityHolder.cooldownModifier);
+            }
+            else
+            {
+                timeText.text = "";
+                cooldownFX.fillAmount = 0;
+            }
     }
     
     public void UpdateAbility(Ability newAbility, int newAbilityLvl = 1) {
