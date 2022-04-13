@@ -23,7 +23,7 @@ public class MeleeAbilty : Ability
 
         //make shure that the hability does damage
         if(clone.TryGetComponent<DealsDamage>(out DealsDamage dealsDamage)) {
-            dealsDamage.damage = damage;
+            dealsDamage.damage = damage * holder.abilityLevel / 2;
         }
 
     }

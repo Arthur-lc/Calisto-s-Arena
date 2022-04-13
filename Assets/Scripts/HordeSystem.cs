@@ -84,22 +84,4 @@ public class HordeSystem : MonoBehaviour
         Gizmos.color = Color.yellow;
         Gizmos.DrawSphere(Vector3.zero, radius);
     }
-
-    public void AddEnemy() {
-        enemyCount++;
-        Debug.Log(enemyCount);
-    }
-
-    public void SubtractEnemy() {
-        /*enemyCount--;
-        Debug.Log(enemyCount);
-        if (enemyCount == 0) {
-            EndWave();
-        }*/
-
-        if(!GameObject.FindGameObjectWithTag("Enemy"))
-        {
-            EndWave();
-        }
-    }
 }

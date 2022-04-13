@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
     
     private GameObject cardSelection;
     private ActionBar actionBar;
+    [SerializeField] private GameOver gameOverScreen;
+    public int waveNumber = 0;
 
     private void Awake() {
         Instance = this;
@@ -47,6 +49,11 @@ public class GameManager : MonoBehaviour
                 Time.timeScale = 1;
             
             break;
+            case GameState.GameOver:
+                gameOverScreen.gameObject.SetActive(true);
+                Time.timeScale = 0;
+            
+            break;
             default:
 
             break;
@@ -69,4 +76,5 @@ public class GameManager : MonoBehaviour
 public enum GameState {
     Playing,
     BuyingAbility,
+    GameOver
 }

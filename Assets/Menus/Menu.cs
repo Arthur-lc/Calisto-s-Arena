@@ -7,6 +7,11 @@ public class Menu : MonoBehaviour
 {
     public Animation um;
     public Animation dois;
+
+    private void Start() {
+        um.Play();
+        dois.Play();
+    }
     void Update()
     {
         if (Input.GetKeyUp(KeyCode.P))

@@ -159,6 +159,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 2
+  isInvunerable: 0
 --- !u!82 &1962793630628028095
 AudioSource:
   m_ObjectHideFlags: 0
@@ -312,7 +313,7 @@ GameObject:
   m_Component:
   - component: {fileID: 299209299819763660}
   - component: {fileID: 1318676673618461277}
-  - component: {fileID: 6195980924411353786}
+  - component: {fileID: 5094086365245590705}
   m_Layer: 8
   m_Name: Damage
   m_TagString: Untagged
@@ -350,7 +351,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.104873165
---- !u!114 &6195980924411353786
+--- !u!114 &5094086365245590705
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -359,12 +360,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 7339177930039052063}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e383e3e13c560a489eebe974914b0bc, type: 3}
+  m_Script: {fileID: 11500000, guid: 2202b7847c1162c48856e0b9b6d7accc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetLayer:
-    serializedVersion: 2
-    m_Bits: 8
   targetTag: Player
   damage: 1
-  piercing: -1
+  damageRate: 1
+  timeSinceDamage: 0

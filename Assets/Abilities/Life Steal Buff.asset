@@ -20,6 +20,6 @@ MonoBehaviour:
   cooldownTime: -1
   activeTime: 0
   sfx: {fileID: 0}
-  description: 5% of life steal.
-  lvlUpDescription: 5% more life steal.
+  description: 5% chance of life steal when damaging enemies.
+  lvlUpDescription: 5% more chance of life steal.
   hideArrow: 0

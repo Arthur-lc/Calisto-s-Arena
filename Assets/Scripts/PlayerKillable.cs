@@ -30,6 +30,6 @@ public class PlayerKillable : Killable
 
     public override void Die()
     {
-        Time.timeScale = 0;
+        GameManager.Instance.UpdateGameState(GameState.GameOver);
     }
 }

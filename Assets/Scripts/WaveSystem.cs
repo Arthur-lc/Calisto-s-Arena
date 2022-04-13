@@ -42,7 +42,7 @@ public class WaveSystem : MonoBehaviour
         {
             if (waveNumber >= e * 5)
             {
-                if (e == 3) // ta hard coded mas eu n sei como fazer diferente
+                if (e >= 2) // ta hard coded mas eu n sei como fazer diferente
                 {
                     Debug.Log("torre");
                     for (int i = 0; i < 1 + (waveNumber % 5); i++)
