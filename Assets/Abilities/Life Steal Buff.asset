@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: LifeSteal
   icon: {fileID: 21300000, guid: 7b3ceceb8e156ed47a40d6ffb2775d7b, type: 3}
-  maxLvl: 0
+  maxLvl: 10
   type: 1
   isPassive: 1
   cooldownTime: -1

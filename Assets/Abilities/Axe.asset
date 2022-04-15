@@ -20,8 +20,8 @@ MonoBehaviour:
   cooldownTime: 2
   activeTime: 0.3
   sfx: {fileID: 8300000, guid: d9419ba0bfac1e84a95418ac5851caf6, type: 3}
-  description: Heavy attack on mouse direction.
-  lvlUpDescription: Increases the damage.
+  description: A heavy attack on mouse direction.
+  lvlUpDescription: Your axe will cause 50% more damage.
   hideArrow: 1
   damage: 3
   attackObjetct: {fileID: 3928059022713990374, guid: 6fe5c05daa82240479c898f7ace04712, type: 3}

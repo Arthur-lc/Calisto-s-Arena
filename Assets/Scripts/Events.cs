@@ -11,6 +11,7 @@ public class Events
     public static readonly Evt onPurchaseEffected = new Evt();
     public static readonly Evt onEnemySpawned = new Evt();
     public static readonly Evt onEnemyDied = new Evt();
+    public static readonly Evt onReloadGame = new Evt();
     public static readonly Evt<float> onHealthChange = new Evt<float>();
     public static readonly Evt<float> onMaxHealthChange = new Evt<float>();
     public static readonly Evt<float> onCauseDamage = new Evt<float>();

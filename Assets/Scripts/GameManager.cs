@@ -22,6 +22,7 @@ public class GameManager : MonoBehaviour
         cardSelection = GameObject.Find("CardSelection");
         actionBar = FindObjectOfType<ActionBar>();
         UpdateGameState(GameState.BuyingAbility);
+        Events.onReloadGame.Invoke();
     }
 
     private void Update() {

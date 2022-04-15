@@ -19,7 +19,7 @@ public class ProjectileAbility : Ability
 
         //make sure that the hability does damage
         if(newProjectile.TryGetComponent<DealsDamage>(out DealsDamage dealsDamage)) {
-            dealsDamage.damage = damage;
+            dealsDamage.damage = damage * holder.abilityLevel;
         }
     }
 }

@@ -20,8 +20,8 @@ MonoBehaviour:
   cooldownTime: 1
   activeTime: 0.1
   sfx: {fileID: 8300000, guid: d9419ba0bfac1e84a95418ac5851caf6, type: 3}
-  description: Quick attack on mouse direction.
-  lvlUpDescription: Increases the damage.
+  description: A quick attack on mouse direction.
+  lvlUpDescription: Your sword will cause 50% more damage.
   hideArrow: 1
   damage: 2
   attackObjetct: {fileID: 890636466795196936, guid: 245c1e82ddaa86546b22572f4e9d928b, type: 3}

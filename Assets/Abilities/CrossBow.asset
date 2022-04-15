@@ -20,8 +20,8 @@ MonoBehaviour:
   cooldownTime: 2
   activeTime: 0.1
   sfx: {fileID: 8300000, guid: d9419ba0bfac1e84a95418ac5851caf6, type: 3}
-  description: A crossbow.
-  lvlUpDescription: Increases the amount of arrows.
+  description: A crossbow that shoot arrows.
+  lvlUpDescription: Increases the amount of arrows that get shoot.
   hideArrow: 1
   damage: 1
   projectile: {fileID: 4641762176144525737, guid: 745c2c1d9c8b6f24c855e7b767459618, type: 3}
