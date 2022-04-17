@@ -13,7 +13,7 @@ public class MagicMissiles : Projectile
 
     public LayerMask mask;
 
-    public override void Start() {
+    protected override void Start() {
         base.Start();
         /*mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mousePos.z = 0;*/

@@ -13,7 +13,7 @@ public class ObjectPool : MonoBehaviour
         GameObject tmp;
         for (int i = 0; i < poolSize; i++)
         {
-            tmp = Instantiate(objectToPool);
+            tmp = Instantiate(objectToPool, this.transform);
             tmp.SetActive(false);
             pool.Add(tmp);
         }
@@ -34,7 +34,7 @@ public class ObjectPool : MonoBehaviour
         Debug.Log("Pool Increased");
         poolSize++;
         GameObject tmp;
-        tmp = Instantiate(objectToPool);
+        tmp = Instantiate(objectToPool, this.transform);
         tmp.SetActive(false);
         pool.Add(tmp);
         return tmp;

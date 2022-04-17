@@ -8,13 +8,13 @@ public class Projectile : DealsDamage
     [System.NonSerialized] public Rigidbody2D rb;
     [System.NonSerialized] public int abilitylvl = 1;
     
-    public virtual void Start() {
+    protected virtual void Start() {
         rb = GetComponent<Rigidbody2D>();
         rb.velocity = (transform.rotation * Vector2.up) * speed;
-        Invoke("Exclude", 10f);
+        Invoke("Exclude", 5f);
     }
 
-    private void Exclude() {
+    protected virtual void Exclude() {
         Destroy(this.gameObject);
     }
 }
