@@ -33,7 +33,7 @@ public class WaveSystem : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.O))
         {
-            StartNewWave();
+            waveNumber = 20;
         }
     }
 
