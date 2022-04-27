@@ -15,9 +15,13 @@ public class WaveCounter : MonoBehaviour
         Events.onStartWave.RemoveListener(Count);
     }
 
+    private void Start() {
+        GameManager.Instance.waveNumber = wave;
+    }
+
     private void Count() {
         wave++;
-        number.text = wave.ToString();
+        number.text = (wave -1).ToString();
         GameManager.Instance.waveNumber = wave;
     }
 }

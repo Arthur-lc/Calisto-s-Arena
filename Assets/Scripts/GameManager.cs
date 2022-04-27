@@ -11,11 +11,14 @@ public class GameManager : MonoBehaviour
     private GameObject cardSelection;
     private ActionBar actionBar;
     [SerializeField] private GameOver gameOverScreen;
-    public int waveNumber = 0;
+    public int waveNumber = -1;
 
-    private void Awake() {
+    private void OnEnable() {
         Instance = this;
         Pool = GetComponent<ObjectPool>();
+    }
+    
+    private void Awake() {
     }
 
     private void Start() {

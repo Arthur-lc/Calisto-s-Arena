@@ -16,7 +16,7 @@ public class CardRamdomizer : MonoBehaviour
     }
 
     public void RandomizeCards() {
-        if (GameManager.Instance.waveNumber >= 0)
+        if (GameManager.Instance.waveNumber > 0)
         {
             Debug.Log("BRUNO DO CRL CALA A BOCA");
             bool haveDamageAbility = false;
