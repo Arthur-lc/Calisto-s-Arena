@@ -27,16 +27,16 @@ public class SkillSlot : MonoBehaviour
     }
 
     private void Update() {
-            if (abilityHolder.state == AbilityHolder.AbilityState.cooldown && GameManager.Instance.state == GameState.Playing)
-            {
-                timeText.text = ((int)abilityHolder.cooldownTime + 1).ToString();
-                cooldownFX.fillAmount = abilityHolder.cooldownTime / (ability.cooldownTime - abilityHolder.cooldownModifier);
-            }
-            else
-            {
-                timeText.text = "";
-                cooldownFX.fillAmount = 0;
-            }
+        if (ability && abilityHolder.state == AbilityHolder.AbilityState.cooldown && GameManager.Instance.state == GameState.Playing)
+        {
+            timeText.text = ((int)abilityHolder.cooldownTime + 1).ToString();
+            cooldownFX.fillAmount = abilityHolder.cooldownTime / (ability.cooldownTime - abilityHolder.cooldownModifier);
+        }
+        else
+        {
+            timeText.text = "";
+            cooldownFX.fillAmount = 0;
+        }
     }
     
     public void UpdateAbility(Ability newAbility, int newAbilityLvl = 1) {
@@ -64,6 +64,7 @@ public class SkillSlot : MonoBehaviour
 
     public void Clicked() {
         Debug.Log("clicou");
-        FindObjectOfType<ActionBar>().OnSlotSelected(this);
+        if(GameManager.Instance.state == GameState.BuyingAbility)
+            FindObjectOfType<ActionBar>().OnSlotSelected(this);
     }
 }

@@ -20,11 +20,11 @@ public class AbilityHolder : MonoBehaviour
     public AbilityState state = AbilityState.ready;
 
     private void OnEnable() {
-        Events.onStartWave.AddListener(ResetCooldown);
+        Events.onBuyingAbility.AddListener(ResetCooldown);
     }
 
     private void OnDisable() {
-        Events.onStartWave.RemoveListener(ResetCooldown);
+        Events.onBuyingAbility.RemoveListener(ResetCooldown);
     }
 
     private void Start() {
